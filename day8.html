@@ -1,0 +1,412 @@
+<section style="max-width:677px;width:100%;margin:0 auto;padding:0 14px;box-sizing:border-box;overflow-wrap:break-word;word-break:break-word;">
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">来到第8天，前面几天都比较顺，该来的迟早会来，第一个坑出现了，Stripe支付。</span></p>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">大陆用户做 Web 出海时，Stripe 最大的问题不是「技术接入」，而是<span leaf="" style="border-bottom:2px solid #C9A227;font-weight:600;color:#0B1D33;">账户、主体、收款、税务、风控</span>。</span></p>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">以下是我整理的可能出现的坑，以及我在Stripe的初体验记录，一起来看看：</span></p>
+<section style="border-bottom:2px solid #0F2E4C;padding:0 0 12px;margin:0 0 16px;"><p style="margin:0;font-size:20px;font-weight:700;color:#0B1D33;letter-spacing:1px;"><span leaf="">接入Stripe潜在的坑</span></p></section>
+<section style="margin:0 0 20px;"><img src="images/day8-illust-pitmap.png" style="max-width:100%;height:auto;display:block;border-radius:10px;border:1px solid #DCE5EF;"/></section>
+<section style="border-bottom:2px solid #0F2E4C;padding:0 0 14px;margin:0 0 16px;">
+<section style="display:flex;align-items:center;">
+<p style="margin:0 12px 0 0;"><span leaf="" style="display:inline-block;width:36px;height:36px;border:2px solid #C9A227;border-radius:50%;color:#C9A227;font-size:16px;font-weight:700;text-align:center;line-height:32px;">01</span></p>
+<p style="margin:0;font-size:19px;font-weight:700;color:#0B1D33;letter-spacing:1px;"><span leaf="">坑1：没有海外主体，直接注册 Stripe</span></p>
+</section>
+</section>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">这是最大坑。</span></p>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">很多教程说：</span></p>
+<section style="background-color:#EAF1F8;border-left:4px solid #C9A227;border-radius:0 10px 10px 0;padding:16px 18px;margin:0 0 20px;">
+<p style="margin:0;font-size:15px;color:#0B1D33;font-weight:600;line-height:1.8;"><span leaf="">「注册 Stripe → 填资料 → 开始收钱」</span></p>
+</section>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">但实际：</span></p>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">Stripe 本质上是给<span leaf="" style="border-bottom:2px solid #C9A227;font-weight:600;color:#0B1D33;">企业/商户收款</span>的平台。</span></p>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">中国大陆用户想用 Stripe，一般需要：</span></p>
+<section style="background-color:#F4F8FC;border:1px solid #DCE5EF;border-radius:10px;padding:14px 18px;margin:0 0 14px;"><p style="margin:0;font-size:14px;color:#3D5066;line-height:1.9;white-space:pre-wrap;"><span leaf="">海外主体
++
+海外银行账户
++
+真实身份验证</span></p></section>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">常见组合：</span></p>
+<section style="background-color:#F4F8FC;border:1px solid #DCE5EF;border-radius:10px;padding:14px 18px;margin:0 0 14px;"><p style="margin:0;font-size:14px;color:#3D5066;line-height:1.9;white-space:pre-wrap;"><span leaf="">美国 LLC
++
+美国银行账户（Mercury / Relay等）
++
+Stripe US</span></p></section>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">或者：</span></p>
+<section style="background-color:#F4F8FC;border:1px solid #DCE5EF;border-radius:10px;padding:14px 18px;margin:0 0 14px;"><p style="margin:0;font-size:14px;color:#3D5066;line-height:1.9;white-space:pre-wrap;"><span leaf="">香港公司
++
+香港银行账户
++
+Stripe HK</span></p></section>
+<section style="margin:0 0 20px;"><img src="images/day8-illust-trinity.png" style="max-width:100%;height:auto;display:block;border-radius:10px;border:1px solid #DCE5EF;"/></section>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">很多人误以为：</span></p>
+<section style="background-color:#EAF1F8;border-left:4px solid #C9A227;border-radius:0 10px 10px 0;padding:16px 18px;margin:0 0 20px;">
+<p style="margin:0;font-size:15px;color:#0B1D33;font-weight:600;line-height:1.8;"><span leaf="">「我有护照/身份证，就可以注册美国 Stripe」</span></p>
+</section>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">不一定。</span></p>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">Stripe 会问：</span></p>
+<p style="margin:0 0 12px;font-size:15px;color:#3D5066;line-height:1.78;"><span leaf="" style="color:#C9A227;font-weight:700;margin-right:6px;">◆</span><span leaf="">公司注册信息</span></p>
+<p style="margin:0 0 12px;font-size:15px;color:#3D5066;line-height:1.78;"><span leaf="" style="color:#C9A227;font-weight:700;margin-right:6px;">◆</span><span leaf="">EIN（美国税号）</span></p>
+<p style="margin:0 0 12px;font-size:15px;color:#3D5066;line-height:1.78;"><span leaf="" style="color:#C9A227;font-weight:700;margin-right:6px;">◆</span><span leaf="">董事/负责人身份</span></p>
+<p style="margin:0 0 12px;font-size:15px;color:#3D5066;line-height:1.78;"><span leaf="" style="color:#C9A227;font-weight:700;margin-right:6px;">◆</span><span leaf="">地址</span></p>
+<p style="margin:0 0 12px;font-size:15px;color:#3D5066;line-height:1.78;"><span leaf="" style="color:#C9A227;font-weight:700;margin-right:6px;">◆</span><span leaf="">银行账户</span></p>
+<section style="border-bottom:2px solid #0F2E4C;padding:0 0 14px;margin:0 0 16px;">
+<section style="display:flex;align-items:center;">
+<p style="margin:0 12px 0 0;"><span leaf="" style="display:inline-block;width:36px;height:36px;border:2px solid #C9A227;border-radius:50%;color:#C9A227;font-size:16px;font-weight:700;text-align:center;line-height:32px;">02</span></p>
+<p style="margin:0;font-size:19px;font-weight:700;color:#0B1D33;letter-spacing:1px;"><span leaf="">坑2：国家选错，无法修改（我在测试时就遇到了）</span></p>
+</section>
+</section>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">典型：</span></p>
+<section style="background-color:#EAF1F8;border-left:4px solid #C9A227;border-radius:0 10px 10px 0;padding:16px 18px;margin:0 0 20px;">
+<p style="margin:0;font-size:15px;color:#0B1D33;font-weight:600;line-height:1.8;"><span leaf="">「IP在日本，界面的国家默认成了日本，且没有提示国家后续不能修改，第一次注册并不知道，就直接就点【下一步】了。」</span></p>
+</section>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">结果：</span></p>
+<section style="background-color:#F4F8FC;border:1px solid #DCE5EF;border-radius:10px;padding:14px 18px;margin:0 0 14px;"><p style="margin:0;font-size:14px;color:#3D5066;line-height:1.9;white-space:pre-wrap;"><span leaf="">Stripe JP</span></p></section>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">但实际上：</span></p>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">你没有：</span></p>
+<p style="margin:0 0 12px;font-size:15px;color:#3D5066;line-height:1.78;"><span leaf="" style="color:#C9A227;font-weight:700;margin-right:6px;">◆</span><span leaf="">日本公司</span></p>
+<p style="margin:0 0 12px;font-size:15px;color:#3D5066;line-height:1.78;"><span leaf="" style="color:#C9A227;font-weight:700;margin-right:6px;">◆</span><span leaf="">日本银行</span></p>
+<p style="margin:0 0 12px;font-size:15px;color:#3D5066;line-height:1.78;"><span leaf="" style="color:#C9A227;font-weight:700;margin-right:6px;">◆</span><span leaf="">日本税务身份</span></p>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">后面卡死。</span></p>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">这个Stripe账号可能就废了，需要重新注册一个账号。</span></p>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">不要根据所在地/IP选，而要根据商业主体所在地选，测试阶段也选对。</span></p>
+<section style="border-bottom:2px solid #0F2E4C;padding:0 0 14px;margin:0 0 16px;">
+<section style="display:flex;align-items:center;">
+<p style="margin:0 12px 0 0;"><span leaf="" style="display:inline-block;width:36px;height:36px;border:2px solid #C9A227;border-radius:50%;color:#C9A227;font-size:16px;font-weight:700;text-align:center;line-height:32px;">03</span></p>
+<p style="margin:0;font-size:19px;font-weight:700;color:#0B1D33;letter-spacing:1px;"><span leaf="">坑3：Stripe账户名字和银行名字不一致</span></p>
+</section>
+</section>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">例如：</span></p>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">Stripe:</span></p>
+<section style="background-color:#F4F8FC;border:1px solid #DCE5EF;border-radius:10px;padding:14px 18px;margin:0 0 14px;"><p style="margin:0;font-size:14px;color:#3D5066;line-height:1.9;white-space:pre-wrap;"><span leaf="">ABC AI LLC</span></p></section>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">银行:</span></p>
+<section style="background-color:#F4F8FC;border:1px solid #DCE5EF;border-radius:10px;padding:14px 18px;margin:0 0 14px;"><p style="margin:0;font-size:14px;color:#3D5066;line-height:1.9;white-space:pre-wrap;"><span leaf="">WeiChi Personal Account</span></p></section>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">可能触发风控审核。</span></p>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">Stripe喜欢：</span></p>
+<section style="background-color:#F4F8FC;border:1px solid #DCE5EF;border-radius:10px;padding:14px 18px;margin:0 0 14px;"><p style="margin:0;font-size:14px;color:#3D5066;line-height:1.9;white-space:pre-wrap;"><span leaf="">公司名称
+↓
+银行账户名称
+↓
+税务资料</span></p></section>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">一致。</span></p>
+<section style="border-bottom:2px solid #0F2E4C;padding:0 0 14px;margin:0 0 16px;">
+<section style="display:flex;align-items:center;">
+<p style="margin:0 12px 0 0;"><span leaf="" style="display:inline-block;width:36px;height:36px;border:2px solid #C9A227;border-radius:50%;color:#C9A227;font-size:16px;font-weight:700;text-align:center;line-height:32px;">04</span></p>
+<p style="margin:0;font-size:19px;font-weight:700;color:#0B1D33;letter-spacing:1px;"><span leaf="">坑4：一开始收大量海外付款，被风控</span></p>
+</section>
+</section>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">新人常见：</span></p>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">第一天：</span></p>
+<section style="background-color:#F4F8FC;border:1px solid #DCE5EF;border-radius:10px;padding:14px 18px;margin:0 0 14px;"><p style="margin:0;font-size:14px;color:#3D5066;line-height:1.9;white-space:pre-wrap;"><span leaf="">注册Stripe
+↓
+上线AI工具
+↓
+100个用户付款
+↓
+5000美元收入</span></p></section>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">Stripe：</span></p>
+<section style="background-color:#F4F8FC;border:1px solid #DCE5EF;border-radius:10px;padding:14px 18px;margin:0 0 14px;"><p style="margin:0;font-size:14px;color:#3D5066;line-height:1.9;white-space:pre-wrap;"><span leaf="">⚠️ Payment review</span></p></section>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">原因：</span></p>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">新账户没有交易历史，出现交易异常，有洗钱嫌疑等。</span></p>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">建议：</span></p>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">先小额：</span></p>
+<section style="background-color:#F4F8FC;border:1px solid #DCE5EF;border-radius:10px;padding:14px 18px;margin:0 0 14px;"><p style="margin:0;font-size:14px;color:#3D5066;line-height:1.9;white-space:pre-wrap;"><span leaf="">$5
+$10
+$20</span></p></section>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">建立信用。当然啦，新手上线第一天就有100个用户付款这种情况是比较罕见的。</span></p>
+<section style="margin:0 0 20px;"><img src="images/day8-illust-review.png" style="max-width:100%;height:auto;display:block;border-radius:10px;border:1px solid #DCE5EF;"/></section>
+<section style="border-bottom:2px solid #0F2E4C;padding:0 0 14px;margin:0 0 16px;">
+<section style="display:flex;align-items:center;">
+<p style="margin:0 12px 0 0;"><span leaf="" style="display:inline-block;width:36px;height:36px;border:2px solid #C9A227;border-radius:50%;color:#C9A227;font-size:16px;font-weight:700;text-align:center;line-height:32px;">05</span></p>
+<p style="margin:0;font-size:19px;font-weight:700;color:#0B1D33;letter-spacing:1px;"><span leaf="">坑5：业务描述不清</span></p>
+</section>
+</section>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">Stripe审核会问：</span></p>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">你的产品是什么？</span></p>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">不要写：AI相关服务 这要模糊的描述。</span></p>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">而要写：</span></p>
+<section style="background-color:#EAF1F8;border-left:4px solid #C9A227;border-radius:0 10px 10px 0;padding:16px 18px;margin:0 0 20px;">
+<p style="margin:0;font-size:15px;color:#0B1D33;font-weight:600;line-height:1.8;"><span leaf="">「AI-powered writing assistant SaaS helping creators generate blog articles.」</span></p>
+</section>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">或者：</span></p>
+<section style="background-color:#EAF1F8;border-left:4px solid #C9A227;border-radius:0 10px 10px 0;padding:16px 18px;margin:0 0 20px;">
+<p style="margin:0;font-size:15px;color:#0B1D33;font-weight:600;line-height:1.8;"><span leaf="">「Subscription-based productivity software.」</span></p>
+</section>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">重点：</span></p>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">让审核人员知道：</span></p>
+<p style="margin:0 0 12px;font-size:15px;color:#3D5066;line-height:1.78;"><span leaf="" style="color:#C9A227;font-weight:700;margin-right:6px;">◆</span><span leaf="">你卖什么</span></p>
+<p style="margin:0 0 12px;font-size:15px;color:#3D5066;line-height:1.78;"><span leaf="" style="color:#C9A227;font-weight:700;margin-right:6px;">◆</span><span leaf="">谁购买</span></p>
+<p style="margin:0 0 12px;font-size:15px;color:#3D5066;line-height:1.78;"><span leaf="" style="color:#C9A227;font-weight:700;margin-right:6px;">◆</span><span leaf="">如何交付</span></p>
+<section style="border-bottom:2px solid #0F2E4C;padding:0 0 14px;margin:0 0 16px;">
+<section style="display:flex;align-items:center;">
+<p style="margin:0 12px 0 0;"><span leaf="" style="display:inline-block;width:36px;height:36px;border:2px solid #C9A227;border-radius:50%;color:#C9A227;font-size:16px;font-weight:700;text-align:center;line-height:32px;">06</span></p>
+<p style="margin:0;font-size:19px;font-weight:700;color:#0B1D33;letter-spacing:1px;"><span leaf="">坑6：卖数字产品容易踩风控</span></p>
+</section>
+</section>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">比如：</span></p>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">AI：</span></p>
+<p style="margin:0 0 12px;font-size:15px;color:#3D5066;line-height:1.78;"><span leaf="" style="color:#C9A227;font-weight:700;margin-right:6px;">◆</span><span leaf="">Prompt</span></p>
+<p style="margin:0 0 12px;font-size:15px;color:#3D5066;line-height:1.78;"><span leaf="" style="color:#C9A227;font-weight:700;margin-right:6px;">◆</span><span leaf="">模板</span></p>
+<p style="margin:0 0 12px;font-size:15px;color:#3D5066;line-height:1.78;"><span leaf="" style="color:#C9A227;font-weight:700;margin-right:6px;">◆</span><span leaf="">课程</span></p>
+<p style="margin:0 0 12px;font-size:15px;color:#3D5066;line-height:1.78;"><span leaf="" style="color:#C9A227;font-weight:700;margin-right:6px;">◆</span><span leaf="">软件订阅</span></p>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">Stripe不是不能做。</span></p>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">但是风险高于：</span></p>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">实体商品。</span></p>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">原因：</span></p>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">数字产品容易：</span></p>
+<p style="margin:0 0 12px;font-size:15px;color:#3D5066;line-height:1.78;"><span leaf="" style="color:#C9A227;font-weight:700;margin-right:6px;">◆</span><span leaf="">欺诈</span></p>
+<p style="margin:0 0 12px;font-size:15px;color:#3D5066;line-height:1.78;"><span leaf="" style="color:#C9A227;font-weight:700;margin-right:6px;">◆</span><span leaf="">退款</span></p>
+<p style="margin:0 0 12px;font-size:15px;color:#3D5066;line-height:1.78;"><span leaf="" style="color:#C9A227;font-weight:700;margin-right:6px;">◆</span><span leaf="">拒付</span></p>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">所以需要：</span></p>
+<p style="margin:0 0 12px;font-size:15px;color:#3D5066;line-height:1.78;"><span leaf="" style="color:#C9A227;font-weight:700;margin-right:6px;">◆</span><span leaf="">清晰产品页面</span></p>
+<p style="margin:0 0 12px;font-size:15px;color:#3D5066;line-height:1.78;"><span leaf="" style="color:#C9A227;font-weight:700;margin-right:6px;">◆</span><span leaf="">Terms of Service</span></p>
+<p style="margin:0 0 12px;font-size:15px;color:#3D5066;line-height:1.78;"><span leaf="" style="color:#C9A227;font-weight:700;margin-right:6px;">◆</span><span leaf="">Refund Policy</span></p>
+<p style="margin:0 0 12px;font-size:15px;color:#3D5066;line-height:1.78;"><span leaf="" style="color:#C9A227;font-weight:700;margin-right:6px;">◆</span><span leaf="">Privacy Policy</span></p>
+<p style="margin:0 0 12px;font-size:15px;color:#3D5066;line-height:1.78;"><span leaf="" style="color:#C9A227;font-weight:700;margin-right:6px;">◆</span><span leaf="">联系方式</span></p>
+<section style="border-bottom:2px solid #0F2E4C;padding:0 0 14px;margin:0 0 16px;">
+<section style="display:flex;align-items:center;">
+<p style="margin:0 12px 0 0;"><span leaf="" style="display:inline-block;width:36px;height:36px;border:2px solid #C9A227;border-radius:50%;color:#C9A227;font-size:16px;font-weight:700;text-align:center;line-height:32px;">07</span></p>
+<p style="margin:0;font-size:19px;font-weight:700;color:#0B1D33;letter-spacing:1px;"><span leaf="">坑7：没有准备网站</span></p>
+</section>
+</section>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">很多人：</span></p>
+<section style="background-color:#F4F8FC;border:1px solid #DCE5EF;border-radius:10px;padding:14px 18px;margin:0 0 14px;"><p style="margin:0;font-size:14px;color:#3D5066;line-height:1.9;white-space:pre-wrap;"><span leaf="">Stripe注册
+↓
+审核
+↓
+提交网站</span></p></section>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">结果：</span></p>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">网站：</span></p>
+<p style="margin:0 0 12px;font-size:15px;color:#3D5066;line-height:1.78;"><span leaf="" style="color:#C9A227;font-weight:700;margin-right:6px;">◆</span><span leaf="">一个按钮</span></p>
+<p style="margin:0 0 12px;font-size:15px;color:#3D5066;line-height:1.78;"><span leaf="" style="color:#C9A227;font-weight:700;margin-right:6px;">◆</span><span leaf="">没有价格</span></p>
+<p style="margin:0 0 12px;font-size:15px;color:#3D5066;line-height:1.78;"><span leaf="" style="color:#C9A227;font-weight:700;margin-right:6px;">◆</span><span leaf="">没有介绍</span></p>
+<p style="margin:0 0 12px;font-size:15px;color:#3D5066;line-height:1.78;"><span leaf="" style="color:#C9A227;font-weight:700;margin-right:6px;">◆</span><span leaf="">没有联系方式</span></p>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">容易失败。</span></p>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">最低配置：</span></p>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">Landing Page：</span></p>
+<section style="background-color:#F4F8FC;border:1px solid #DCE5EF;border-radius:10px;padding:14px 18px;margin:0 0 14px;"><p style="margin:0;font-size:14px;color:#3D5066;line-height:1.9;white-space:pre-wrap;"><span leaf="">首页
+产品介绍
+Pricing
+About
+Contact
+Privacy Policy
+Terms
+Refund</span></p></section>
+<section style="border-bottom:2px solid #0F2E4C;padding:0 0 14px;margin:0 0 16px;">
+<section style="display:flex;align-items:center;">
+<p style="margin:0 12px 0 0;"><span leaf="" style="display:inline-block;width:36px;height:36px;border:2px solid #C9A227;border-radius:50%;color:#C9A227;font-size:16px;font-weight:700;text-align:center;line-height:32px;">08</span></p>
+<p style="margin:0;font-size:19px;font-weight:700;color:#0B1D33;letter-spacing:1px;"><span leaf="">坑8：中国大陆银行卡不能直接提现</span></p>
+</section>
+</section>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">很多新人以为：</span></p>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">Stripe赚钱：</span></p>
+<section style="background-color:#F4F8FC;border:1px solid #DCE5EF;border-radius:10px;padding:14px 18px;margin:0 0 14px;"><p style="margin:0;font-size:14px;color:#3D5066;line-height:1.9;white-space:pre-wrap;"><span leaf="">Stripe
+↓
+中国银行卡</span></p></section>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">通常不是这样。</span></p>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">需要：</span></p>
+<section style="background-color:#F4F8FC;border:1px solid #DCE5EF;border-radius:10px;padding:14px 18px;margin:0 0 14px;"><p style="margin:0;font-size:14px;color:#3D5066;line-height:1.9;white-space:pre-wrap;"><span leaf="">Stripe
+↓
+海外银行账户
+↓
+换汇
+↓
+国内账户</span></p></section>
+<section style="border-bottom:2px solid #0F2E4C;padding:0 0 14px;margin:0 0 16px;">
+<section style="display:flex;align-items:center;">
+<p style="margin:0 12px 0 0;"><span leaf="" style="display:inline-block;width:36px;height:36px;border:2px solid #C9A227;border-radius:50%;color:#C9A227;font-size:16px;font-weight:700;text-align:center;line-height:32px;">09</span></p>
+<p style="margin:0;font-size:19px;font-weight:700;color:#0B1D33;letter-spacing:1px;"><span leaf="">坑9：忽略税务问题</span></p>
+</section>
+</section>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">例如美国 LLC：</span></p>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">很多人认为：</span></p>
+<section style="background-color:#EAF1F8;border-left:4px solid #C9A227;border-radius:0 10px 10px 0;padding:16px 18px;margin:0 0 20px;">
+<p style="margin:0;font-size:15px;color:#0B1D33;font-weight:600;line-height:1.8;"><span leaf="">「没人在美国，我不用管税。」</span></p>
+</section>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">不完全对。</span></p>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">涉及：</span></p>
+<p style="margin:0 0 12px;font-size:15px;color:#3D5066;line-height:1.78;"><span leaf="" style="color:#C9A227;font-weight:700;margin-right:6px;">◆</span><span leaf="">LLC报税</span></p>
+<p style="margin:0 0 12px;font-size:15px;color:#3D5066;line-height:1.78;"><span leaf="" style="color:#C9A227;font-weight:700;margin-right:6px;">◆</span><span leaf="">信息申报</span></p>
+<p style="margin:0 0 12px;font-size:15px;color:#3D5066;line-height:1.78;"><span leaf="" style="color:#C9A227;font-weight:700;margin-right:6px;">◆</span><span leaf="">所得税</span></p>
+<p style="margin:0 0 12px;font-size:15px;color:#3D5066;line-height:1.78;"><span leaf="" style="color:#C9A227;font-weight:700;margin-right:6px;">◆</span><span leaf="">销售税（Sales Tax）</span></p>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">尤其 SaaS：</span></p>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">不同州规则不同。</span></p>
+<section style="border-bottom:2px solid #0F2E4C;padding:0 0 14px;margin:0 0 16px;">
+<section style="display:flex;align-items:center;">
+<p style="margin:0 12px 0 0;"><span leaf="" style="display:inline-block;width:36px;height:36px;border:2px solid #C9A227;border-radius:50%;color:#C9A227;font-size:16px;font-weight:700;text-align:center;line-height:32px;">10</span></p>
+<p style="margin:0;font-size:19px;font-weight:700;color:#0B1D33;letter-spacing:1px;"><span leaf="">坑10：只看Stripe，不看替代方案</span></p>
+</section>
+</section>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">很多中国开发者最后发现：</span></p>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">Stripe不是唯一选择。</span></p>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">例如：</span></p>
+<section style="margin:0 0 20px;">
+<p style="margin:0 0 10px;font-size:13px;color:#8CA0B5;letter-spacing:1px;"><span leaf="">平台选择速查</span></p>
+<table style="width:100%;border-collapse:collapse;">
+<tr>
+<td style="background-color:#0F2E4C;color:#FFFFFF;font-size:14px;font-weight:700;padding:10px 12px;text-align:center;border:1px solid #0F2E4C;"><span leaf="">平台</span></td>
+<td style="background-color:#0F2E4C;color:#FFFFFF;font-size:14px;font-weight:700;padding:10px 12px;text-align:center;border:1px solid #0F2E4C;"><span leaf="">适合</span></td>
+</tr>
+<tr>
+<td style="font-size:14px;color:#3D5066;padding:10px 12px;text-align:center;border:1px solid #E3EBF1;background-color:#F7FAFC;"><span leaf="">Stripe</span></td>
+<td style="font-size:14px;color:#3D5066;padding:10px 12px;text-align:center;border:1px solid #E3EBF1;background-color:#F7FAFC;"><span leaf="">标准SaaS</span></td>
+</tr>
+<tr>
+<td style="font-size:14px;color:#3D5066;padding:10px 12px;text-align:center;border:1px solid #E3EBF1;"><span leaf="">Paddle</span></td>
+<td style="font-size:14px;color:#3D5066;padding:10px 12px;text-align:center;border:1px solid #E3EBF1;"><span leaf="">数字产品/SaaS，代缴税</span></td>
+</tr>
+<tr>
+<td style="font-size:14px;color:#3D5066;padding:10px 12px;text-align:center;border:1px solid #E3EBF1;background-color:#F7FAFC;"><span leaf="">Lemon Squeezy</span></td>
+<td style="font-size:14px;color:#3D5066;padding:10px 12px;text-align:center;border:1px solid #E3EBF1;background-color:#F7FAFC;"><span leaf="">独立开发者</span></td>
+</tr>
+<tr>
+<td style="font-size:14px;color:#3D5066;padding:10px 12px;text-align:center;border:1px solid #E3EBF1;"><span leaf="">Gumroad</span></td>
+<td style="font-size:14px;color:#3D5066;padding:10px 12px;text-align:center;border:1px solid #E3EBF1;"><span leaf="">数字产品</span></td>
+</tr>
+<tr>
+<td style="font-size:14px;color:#3D5066;padding:10px 12px;text-align:center;border:1px solid #E3EBF1;background-color:#F7FAFC;"><span leaf="">PayMaster类</span></td>
+<td style="font-size:14px;color:#3D5066;padding:10px 12px;text-align:center;border:1px solid #E3EBF1;background-color:#F7FAFC;"><span leaf="">部分市场</span></td>
+</tr>
+</table>
+</section>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">目前在 Web 出海学习阶段，还没有明确收费产品，先急着注册美国或香港的主体，开Stripe生产账户。我优先学习 Stripe 技术流程。刚才误选日本，其实反而帮我提前踩了一次典型的坑。</span></p>
+<section style="background-color:#EAF1F8;border-left:4px solid #C9A227;border-radius:0 10px 10px 0;padding:16px 18px;margin:0 0 20px;">
+<p style="margin:0;font-size:15px;color:#0B1D33;font-weight:600;line-height:1.8;"><span leaf="">「<span leaf="" style="border-bottom:2px solid #C9A227;font-weight:600;color:#0B1D33;">中国大陆用户用 Stripe 最大的坑，不是不会接 API，而是用“个人身份注册商业账户”，最后卡在主体、银行和审核。</span>」</span></p>
+</section>
+<section style="border-bottom:2px solid #0F2E4C;padding:0 0 12px;margin:0 0 16px;"><p style="margin:0;font-size:20px;font-weight:700;color:#0B1D33;letter-spacing:1px;"><span leaf="">Stripe初体验</span></p></section>
+<section style="border-bottom:2px solid #0F2E4C;padding:0 0 14px;margin:0 0 16px;">
+<section style="display:flex;align-items:center;">
+<p style="margin:0 12px 0 0;"><span leaf="" style="display:inline-block;width:36px;height:36px;border:2px solid #C9A227;border-radius:50%;color:#C9A227;font-size:16px;font-weight:700;text-align:center;line-height:32px;">11</span></p>
+<p style="margin:0;font-size:19px;font-weight:700;color:#0B1D33;letter-spacing:1px;"><span leaf="">注册</span></p>
+</section>
+</section>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">我用谷歌账号注册</span></p>
+<section style="margin:0 0 16px;"><img src="images/day8-screenshot-01.png" style="max-width:100%;height:auto;display:block;border-radius:10px;border:1px solid #DCE5EF;"/></section>
+<section style="border-bottom:2px solid #0F2E4C;padding:0 0 14px;margin:0 0 16px;">
+<section style="display:flex;align-items:center;">
+<p style="margin:0 12px 0 0;"><span leaf="" style="display:inline-block;width:36px;height:36px;border:2px solid #C9A227;border-radius:50%;color:#C9A227;font-size:16px;font-weight:700;text-align:center;line-height:32px;">12</span></p>
+<p style="margin:0;font-size:19px;font-weight:700;color:#0B1D33;letter-spacing:1px;"><span leaf="">创建账户</span></p>
+</section>
+</section>
+<section style="margin:0 0 16px;"><img src="images/day8-screenshot-02.png" style="max-width:100%;height:auto;display:block;border-radius:10px;border:1px solid #DCE5EF;"/></section>
+<section style="border-bottom:2px solid #0F2E4C;padding:0 0 14px;margin:0 0 16px;">
+<section style="display:flex;align-items:center;">
+<p style="margin:0 12px 0 0;"><span leaf="" style="display:inline-block;width:36px;height:36px;border:2px solid #C9A227;border-radius:50%;color:#C9A227;font-size:16px;font-weight:700;text-align:center;line-height:32px;">13</span></p>
+<p style="margin:0;font-size:19px;font-weight:700;color:#0B1D33;letter-spacing:1px;"><span leaf="">账户名或运营国家</span></p>
+</section>
+</section>
+<section style="margin:0 0 16px;"><img src="images/day8-screenshot-03.png" style="max-width:100%;height:auto;display:block;border-radius:10px;border:1px solid #DCE5EF;"/></section>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">不要使用系统根据IP设置的默认值，可以选美国或中国香港，最好选中国香港，运营国家一旦选择后，不可更改了，至少我目前没找到更改方式，如果有知道如何修改的朋友，还请赐教。</span></p>
+<section style="margin:0 0 16px;"><img src="images/day8-screenshot-04.png" style="max-width:100%;height:auto;display:block;border-radius:10px;border:1px solid #DCE5EF;"/></section>
+<section style="border-bottom:2px solid #0F2E4C;padding:0 0 14px;margin:0 0 16px;">
+<section style="display:flex;align-items:center;">
+<p style="margin:0 12px 0 0;"><span leaf="" style="display:inline-block;width:36px;height:36px;border:2px solid #C9A227;border-radius:50%;color:#C9A227;font-size:16px;font-weight:700;text-align:center;line-height:32px;">14</span></p>
+<p style="margin:0;font-size:19px;font-weight:700;color:#0B1D33;letter-spacing:1px;"><span leaf="">描述企业</span></p>
+</section>
+</section>
+<section style="margin:0 0 16px;"><img src="images/day8-screenshot-05.png" style="max-width:100%;height:auto;display:block;border-radius:10px;border:1px solid #DCE5EF;"/></section>
+<section style="border-bottom:2px solid #0F2E4C;padding:0 0 14px;margin:0 0 16px;">
+<section style="display:flex;align-items:center;">
+<p style="margin:0 12px 0 0;"><span leaf="" style="display:inline-block;width:36px;height:36px;border:2px solid #C9A227;border-radius:50%;color:#C9A227;font-size:16px;font-weight:700;text-align:center;line-height:32px;">15</span></p>
+<p style="margin:0;font-size:19px;font-weight:700;color:#0B1D33;letter-spacing:1px;"><span leaf="">销售服务模式</span></p>
+</section>
+</section>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">第一种stripe托管，但每笔费用会3.5%的费用，你比较省心。</span></p>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">第二种需要你自己处理税务，客户支持等，省钱但费心。</span></p>
+<section style="margin:0 0 16px;"><img src="images/day8-screenshot-06.png" style="max-width:100%;height:auto;display:block;border-radius:10px;border:1px solid #DCE5EF;"/></section>
+<section style="border-bottom:2px solid #0F2E4C;padding:0 0 14px;margin:0 0 16px;">
+<section style="display:flex;align-items:center;">
+<p style="margin:0 12px 0 0;"><span leaf="" style="display:inline-block;width:36px;height:36px;border:2px solid #C9A227;border-radius:50%;color:#C9A227;font-size:16px;font-weight:700;text-align:center;line-height:32px;">16</span></p>
+<p style="margin:0;font-size:19px;font-weight:700;color:#0B1D33;letter-spacing:1px;"><span leaf="">定价模式</span></p>
+</section>
+</section>
+<section style="margin:0 0 16px;"><img src="images/day8-screenshot-07.png" style="max-width:100%;height:auto;display:block;border-radius:10px;border:1px solid #DCE5EF;"/></section>
+<section style="margin:0 0 16px;"><img src="images/day8-screenshot-08.png" style="max-width:100%;height:auto;display:block;border-radius:10px;border:1px solid #DCE5EF;"/></section>
+<section style="margin:0 0 16px;"><img src="images/day8-screenshot-09.png" style="max-width:100%;height:auto;display:block;border-radius:10px;border:1px solid #DCE5EF;"/></section>
+<section style="margin:0 0 16px;"><img src="images/day8-screenshot-10.png" style="max-width:100%;height:auto;display:block;border-radius:10px;border:1px solid #DCE5EF;"/></section>
+<section style="border-bottom:2px solid #0F2E4C;padding:0 0 14px;margin:0 0 16px;">
+<section style="display:flex;align-items:center;">
+<p style="margin:0 12px 0 0;"><span leaf="" style="display:inline-block;width:36px;height:36px;border:2px solid #C9A227;border-radius:50%;color:#C9A227;font-size:16px;font-weight:700;text-align:center;line-height:32px;">17</span></p>
+<p style="margin:0;font-size:19px;font-weight:700;color:#0B1D33;letter-spacing:1px;"><span leaf="">设置Managed Payments</span></p>
+</section>
+</section>
+<section style="margin:0 0 16px;"><img src="images/day8-screenshot-11.png" style="max-width:100%;height:auto;display:block;border-radius:10px;border:1px solid #DCE5EF;"/></section>
+<section style="margin:0 0 16px;"><img src="images/day8-screenshot-12.png" style="max-width:100%;height:auto;display:block;border-radius:10px;border:1px solid #DCE5EF;"/></section>
+<section style="margin:0 0 16px;"><img src="images/day8-screenshot-13.png" style="max-width:100%;height:auto;display:block;border-radius:10px;border:1px solid #DCE5EF;"/></section>
+<section style="margin:0 0 16px;"><img src="images/day8-screenshot-14.png" style="max-width:100%;height:auto;display:block;border-radius:10px;border:1px solid #DCE5EF;"/></section>
+<section style="margin:0 0 16px;"><img src="images/day8-screenshot-15.png" style="max-width:100%;height:auto;display:block;border-radius:10px;border:1px solid #DCE5EF;"/></section>
+<section style="border-bottom:2px solid #0F2E4C;padding:0 0 14px;margin:0 0 16px;">
+<section style="display:flex;align-items:center;">
+<p style="margin:0 12px 0 0;"><span leaf="" style="display:inline-block;width:36px;height:36px;border:2px solid #C9A227;border-radius:50%;color:#C9A227;font-size:16px;font-weight:700;text-align:center;line-height:32px;">18</span></p>
+<p style="margin:0;font-size:19px;font-weight:700;color:#0B1D33;letter-spacing:1px;"><span leaf="">体验接入流程</span></p>
+</section>
+</section>
+<section style="margin:0 0 16px;"><img src="images/day8-screenshot-16.png" style="max-width:100%;height:auto;display:block;border-radius:10px;border:1px solid #DCE5EF;"/></section>
+<section style="margin:0 0 16px;"><img src="images/day8-screenshot-17.png" style="max-width:100%;height:auto;display:block;border-radius:10px;border:1px solid #DCE5EF;"/></section>
+<section style="margin:0 0 16px;"><img src="images/day8-screenshot-18.png" style="max-width:100%;height:auto;display:block;border-radius:10px;border:1px solid #DCE5EF;"/></section>
+<section style="border-bottom:2px solid #0F2E4C;padding:0 0 14px;margin:0 0 16px;">
+<section style="display:flex;align-items:center;">
+<p style="margin:0 12px 0 0;"><span leaf="" style="display:inline-block;width:36px;height:36px;border:2px solid #C9A227;border-radius:50%;color:#C9A227;font-size:16px;font-weight:700;text-align:center;line-height:32px;">19</span></p>
+<p style="margin:0;font-size:19px;font-weight:700;color:#0B1D33;letter-spacing:1px;"><span leaf="">品牌设置</span></p>
+</section>
+</section>
+<section style="margin:0 0 16px;"><img src="images/day8-screenshot-19.png" style="max-width:100%;height:auto;display:block;border-radius:10px;border:1px solid #DCE5EF;"/></section>
+<section style="margin:0 0 16px;"><img src="images/day8-screenshot-20.png" style="max-width:100%;height:auto;display:block;border-radius:10px;border:1px solid #DCE5EF;"/></section>
+<section style="margin:0 0 16px;"><img src="images/day8-screenshot-21.png" style="max-width:100%;height:auto;display:block;border-radius:10px;border:1px solid #DCE5EF;"/></section>
+<section style="margin:0 0 16px;"><img src="images/day8-screenshot-22.png" style="max-width:100%;height:auto;display:block;border-radius:10px;border:1px solid #DCE5EF;"/></section>
+<section style="margin:0 0 16px;"><img src="images/day8-screenshot-23.png" style="max-width:100%;height:auto;display:block;border-radius:10px;border:1px solid #DCE5EF;"/></section>
+<section style="margin:0 0 16px;"><img src="images/day8-screenshot-24.png" style="max-width:100%;height:auto;display:block;border-radius:10px;border:1px solid #DCE5EF;"/></section>
+<section style="border-bottom:2px solid #0F2E4C;padding:0 0 14px;margin:0 0 16px;">
+<section style="display:flex;align-items:center;">
+<p style="margin:0 12px 0 0;"><span leaf="" style="display:inline-block;width:36px;height:36px;border:2px solid #C9A227;border-radius:50%;color:#C9A227;font-size:16px;font-weight:700;text-align:center;line-height:32px;">20</span></p>
+<p style="margin:0;font-size:19px;font-weight:700;color:#0B1D33;letter-spacing:1px;"><span leaf="">创建测试客户</span></p>
+</section>
+</section>
+<section style="margin:0 0 16px;"><img src="images/day8-screenshot-25.png" style="max-width:100%;height:auto;display:block;border-radius:10px;border:1px solid #DCE5EF;"/></section>
+<section style="margin:0 0 16px;"><img src="images/day8-screenshot-26.png" style="max-width:100%;height:auto;display:block;border-radius:10px;border:1px solid #DCE5EF;"/></section>
+<section style="border-bottom:2px solid #0F2E4C;padding:0 0 14px;margin:0 0 16px;">
+<section style="display:flex;align-items:center;">
+<p style="margin:0 12px 0 0;"><span leaf="" style="display:inline-block;width:36px;height:36px;border:2px solid #C9A227;border-radius:50%;color:#C9A227;font-size:16px;font-weight:700;text-align:center;line-height:32px;">21</span></p>
+<p style="margin:0;font-size:19px;font-weight:700;color:#0B1D33;letter-spacing:1px;"><span leaf="">测试收款链接</span></p>
+</section>
+</section>
+<section style="margin:0 0 16px;"><img src="images/day8-screenshot-27.png" style="max-width:100%;height:auto;display:block;border-radius:10px;border:1px solid #DCE5EF;"/></section>
+<section style="margin:0 0 16px;"><img src="images/day8-screenshot-28.png" style="max-width:100%;height:auto;display:block;border-radius:10px;border:1px solid #DCE5EF;"/></section>
+<section style="border-bottom:2px solid #0F2E4C;padding:0 0 14px;margin:0 0 16px;">
+<section style="display:flex;align-items:center;">
+<p style="margin:0 12px 0 0;"><span leaf="" style="display:inline-block;width:36px;height:36px;border:2px solid #C9A227;border-radius:50%;color:#C9A227;font-size:16px;font-weight:700;text-align:center;line-height:32px;">22</span></p>
+<p style="margin:0;font-size:19px;font-weight:700;color:#0B1D33;letter-spacing:1px;"><span leaf="">在邮箱中看到了付款邮件</span></p>
+</section>
+</section>
+<section style="margin:0 0 16px;"><img src="images/day8-screenshot-29.png" style="max-width:100%;height:auto;display:block;border-radius:10px;border:1px solid #DCE5EF;"/></section>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">点击 pay the invoce</span></p>
+<section style="margin:0 0 16px;"><img src="images/day8-screenshot-30.png" style="max-width:100%;height:auto;display:block;border-radius:10px;border:1px solid #DCE5EF;"/></section>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">完成支付了，可以下载账单和收据</span></p>
+<section style="border-bottom:2px solid #0F2E4C;padding:0 0 14px;margin:0 0 16px;">
+<section style="display:flex;align-items:center;">
+<p style="margin:0 12px 0 0;"><span leaf="" style="display:inline-block;width:36px;height:36px;border:2px solid #C9A227;border-radius:50%;color:#C9A227;font-size:16px;font-weight:700;text-align:center;line-height:32px;">23</span></p>
+<p style="margin:0;font-size:19px;font-weight:700;color:#0B1D33;letter-spacing:1px;"><span leaf="">新的可能</span></p>
+</section>
+</section>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">我重新注册了一个账户，可以选择美国</span></p>
+<section style="margin:0 0 16px;"><img src="images/day8-screenshot-31.png" style="max-width:100%;height:auto;display:block;border-radius:10px;border:1px solid #DCE5EF;"/></section>
+<section style="margin:0 0 16px;"><img src="images/day8-screenshot-32.png" style="max-width:100%;height:auto;display:block;border-radius:10px;border:1px solid #DCE5EF;"/></section>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">但不知道主账号是日本，子账号美国，在生产环境是否会触发风控。</span></p>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">我感觉对Stripe还是一知半解，了解了基础配置，但后续的认证，办银行卡，接入产品，上站投产这些事情还有待进一步操作，先有个初印象吧，等到后面来解决，我不可能在现在为了死磕这个问题，无限耽误后面的进程，等到真实产品上站前再来彻底解决Stripe的问题。</span></p>
+<p style="margin:0 0 14px;font-size:15px;color:#3D5066;line-height:1.78;letter-spacing:0.5px;"><span leaf="">我是未迟，正在挑战30天自学Web出海，我们下期见。</span></p>
+
+<!-- END -->
+<section style="text-align:center;margin:28px 0 24px;">
+<section style="display:flex;align-items:center;margin:0 0 10px;">
+<p style="margin:0;flex:1;height:2px;background:repeating-linear-gradient(90deg,#C9A227 0 8px,transparent 8px 18px);font-size:1px;line-height:1;overflow:hidden;"><span leaf=""><br></span></p>
+<p style="margin:0 10px;font-size:22px;color:#C9A227;line-height:1;"><span leaf="">⚓</span></p>
+<p style="margin:0;flex:1;height:2px;background:repeating-linear-gradient(90deg,#C9A227 0 8px,transparent 8px 18px);font-size:1px;line-height:1;overflow:hidden;"><span leaf=""><br></span></p>
+</section>
+<p style="margin:0 0 6px;font-size:13px;color:#8CA0B5;letter-spacing:4px;"><span leaf="">END · 第8天航线</span></p>
+<p style="margin:0;height:2px;background:repeating-linear-gradient(90deg,#0F2E4C 0 10px,transparent 10px 20px);font-size:1px;line-height:1;overflow:hidden;"><span leaf=""><br></span></p>
+</section>
+
+<!-- 签名区 -->
+<section style="background-color:#F2F7FC;border:1px solid #DCE5EF;border-radius:10px;padding:20px;margin:0;text-align:center;">
+<p style="margin:0 0 6px;font-size:16px;color:#0B1D33;font-weight:700;line-height:1.7;"><span leaf="">我是未迟，一位正在自学 Web 出海的记录者。</span></p>
+<p style="margin:0 0 12px;font-size:14px;color:#8CA0B5;line-height:1.7;"><span leaf="">挑战30天自学Web出海 · 每天更新一篇手记</span></p>
+<p style="margin:0;font-size:14px;color:#3D5066;line-height:1.8;"><span leaf="">如果这条航线对你有启发，欢迎</span><span leaf="" style="border-bottom:2px solid #C9A227;font-weight:600;color:#0B1D33;">点赞、在看、转发</span><span leaf="">，我们下篇见。</span></p>
+</section>
+</section>
