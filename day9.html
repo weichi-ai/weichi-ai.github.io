@@ -1,0 +1,207 @@
+<section style="max-width:677px;margin:0 auto;background:#FFFFFF;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;color:#525252;line-height:1.9;letter-spacing:0.3px;overflow-x:hidden;">
+
+<!-- 引言卡 -->
+<section style="margin:32px 16px 48px;padding:40px 24px;border-top:1px solid #E8E8E8;border-bottom:1px solid #E8E8E8;text-align:center;">
+<p style="font-family:'Noto Serif SC',Georgia,'Times New Roman',serif;font-size:19px;font-weight:600;color:#2B2B2B;margin:0 0 28px;line-height:1.85;letter-spacing:0.8px;">
+<span leaf="">一个典型的 Next.js 项目，本质上就是</span><span leaf="" style="border-bottom:1.5px solid #B5C8BC;font-weight:500;">一家公司</span><span leaf="">。</span>
+</p>
+<p style="font-size:12px;color:#A3A3A3;margin:0;letter-spacing:1.5px;"><span leaf="">—— 未迟 · 第9天手记</span></p>
+</section>
+
+<section style="margin:0 16px 30px;border:1px solid #E8E8E8;"><section style="margin:0;overflow:hidden;"><span leaf=""><img src="images/day9-illus-building.png" style="max-width:100%;display:block;"></span></section></section>
+
+<!-- 前言 -->
+<p style="margin-bottom:26px;font-size:15px;line-height:1.9;text-align:justify;color:#525252;padding:0 16px;"><span leaf="">整体可以把 Next.js 项目理解成：</span><span style="border-bottom:1.5px solid #B5C8BC;font-weight:500;"><span leaf="">app 是公司前台 + 业务部门，components 是工具设备，lib 是能力中心</span></span><span leaf="">，database 是档案库，public 是宣传物料，config 是制度文件，middleware 是门卫。</span></p>
+
+<!-- 目录 -->
+<section style="padding:0 16px 48px;">
+<p style="font-size:11px;color:#A3A3A3;margin:0 0 20px;letter-spacing:2px;text-transform:uppercase;"><span leaf="">本文脉络</span></p>
+<section style="border-top:1px solid #E8E8E8;">
+<section style="display:flex;">
+<section style="flex:1;padding:18px 12px 18px 0;border-bottom:1px solid #E8E8E8;border-right:1px solid #E8E8E8;margin-right:16px;">
+<p style="font-size:11px;color:#4A5D52;font-weight:600;margin:0 0 6px;letter-spacing:1px;"><span leaf="">01</span></p>
+<p style="font-size:13px;color:#2B2B2B;margin:0;font-weight:500;line-height:1.5;"><span leaf="">典型项目结构</span></p>
+</section>
+<section style="flex:1;padding:18px 12px 18px 0;border-bottom:1px solid #E8E8E8;border-right:1px solid #E8E8E8;margin-right:16px;">
+<p style="font-size:11px;color:#4A5D52;font-weight:600;margin:0 0 6px;letter-spacing:1px;"><span leaf="">02</span></p>
+<p style="font-size:13px;color:#2B2B2B;margin:0;font-weight:500;line-height:1.5;"><span leaf="">目录逐一拆解</span></p>
+</section>
+<section style="flex:1;padding:18px 0 18px 0;border-bottom:1px solid #E8E8E8;">
+<p style="font-size:11px;color:#4A5D52;font-weight:600;margin:0 0 6px;letter-spacing:1px;"><span leaf="">03</span></p>
+<p style="font-size:13px;color:#2B2B2B;margin:0;font-weight:500;line-height:1.5;"><span leaf="">请求完整流程</span></p>
+</section>
+</section>
+</section>
+</section>
+
+<!-- 第一章 -->
+<section style="margin-top:64px;margin-bottom:32px;padding:0 16px;">
+<p style="font-size:10px;color:#4A5D52;font-weight:600;letter-spacing:4px;margin:0 0 10px;text-transform:uppercase;"><span leaf="">01 · STRUCTURE</span></p>
+<p style="font-family:'Noto Serif SC',Georgia,'Times New Roman',serif;font-size:22px;font-weight:700;color:#2B2B2B;margin:0 0 16px;letter-spacing:0.5px;line-height:1.4;"><span leaf="">典型 Next.js 项目结构</span></p>
+<section style="width:40px;height:2px;background:#4A5D52;"><span leaf=""><br></span></section>
+</section><section style="margin:0 16px 26px;border:1px solid #E8E8E8;border-radius:2px;padding:18px 16px;background:#FBFBFB;">
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">my-next-app</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">│</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">├── app/</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">│&nbsp;&nbsp;&nbsp;├── layout.tsx</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">│&nbsp;&nbsp;&nbsp;├── page.tsx</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">│&nbsp;&nbsp;&nbsp;├── globals.css</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">│&nbsp;&nbsp;&nbsp;├── dashboard/</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── page.tsx</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">│&nbsp;&nbsp;&nbsp;├── api/</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── users/</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── route.ts</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">│&nbsp;&nbsp;&nbsp;├── login/</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">│&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;└── page.tsx</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">│&nbsp;&nbsp;&nbsp;└── loading.tsx</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">│</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">├── components/&nbsp;&nbsp;(Button / Navbar / UserCard)</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">├── lib/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(auth / db / utils)</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">├── database/&nbsp;&nbsp;&nbsp;&nbsp;(schema.sql)</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">├── public/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(logo / avatar)</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">├── styles/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(custom.css)</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">├── config/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(site.ts)</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">├── middleware.ts</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">├── .env / package.json / next.config.js</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">├── tailwind.config.ts / tsconfig.json</span></p>
+</section>
+
+<!-- 第二章 -->
+<section style="margin-top:64px;margin-bottom:32px;padding:0 16px;">
+<p style="font-size:10px;color:#4A5D52;font-weight:600;letter-spacing:4px;margin:0 0 10px;text-transform:uppercase;"><span leaf="">02 · DIRECTORIES</span></p>
+<p style="font-family:'Noto Serif SC',Georgia,'Times New Roman',serif;font-size:22px;font-weight:700;color:#2B2B2B;margin:0 0 16px;letter-spacing:0.5px;line-height:1.4;"><span leaf="">目录详细解释</span></p>
+<section style="width:40px;height:2px;background:#4A5D52;"><span leaf=""><br></span></section>
+</section><section style="margin:0 16px 30px;overflow-x:auto;"><table style="width:100%;border-collapse:collapse;"><tr><td style="background:#EEF3F0;color:#3D5046;font-size:13px;font-weight:600;padding:10px 12px;text-align:left;border:1px solid #E8E8E8;"><span leaf="">文件/目录</span></td><td style="background:#EEF3F0;color:#3D5046;font-size:13px;font-weight:600;padding:10px 12px;text-align:left;border:1px solid #E8E8E8;"><span leaf="">作用</span></td><td style="background:#EEF3F0;color:#3D5046;font-size:13px;font-weight:600;padding:10px 12px;text-align:left;border:1px solid #E8E8E8;"><span leaf="">生活化比喻</span></td></tr><tr><td style="background:#FBFBFB;color:#525252;font-size:13px;padding:10px 12px;text-align:left;border:1px solid #E8E8E8;line-height:1.6;"><span leaf="">app/</span></td><td style="background:#FBFBFB;color:#525252;font-size:13px;padding:10px 12px;text-align:left;border:1px solid #E8E8E8;line-height:1.6;"><span leaf="">Next.js 核心目录，管理页面、路由、接口</span></td><td style="background:#FBFBFB;color:#525252;font-size:13px;padding:10px 12px;text-align:left;border:1px solid #E8E8E8;line-height:1.6;"><span leaf="">公司办公楼</span></td></tr><tr><td style="color:#525252;font-size:13px;padding:10px 12px;text-align:left;border:1px solid #E8E8E8;line-height:1.6;"><span leaf="">page.tsx</span></td><td style="color:#525252;font-size:13px;padding:10px 12px;text-align:left;border:1px solid #E8E8E8;line-height:1.6;"><span leaf="">一个页面入口</span></td><td style="color:#525252;font-size:13px;padding:10px 12px;text-align:left;border:1px solid #E8E8E8;line-height:1.6;"><span leaf="">一个办公室</span></td></tr><tr><td style="background:#FBFBFB;color:#525252;font-size:13px;padding:10px 12px;text-align:left;border:1px solid #E8E8E8;line-height:1.6;"><span leaf="">layout.tsx</span></td><td style="background:#FBFBFB;color:#525252;font-size:13px;padding:10px 12px;text-align:left;border:1px solid #E8E8E8;line-height:1.6;"><span leaf="">页面公共布局</span></td><td style="background:#FBFBFB;color:#525252;font-size:13px;padding:10px 12px;text-align:left;border:1px solid #E8E8E8;line-height:1.6;"><span leaf="">公司大厅装修</span></td></tr><tr><td style="color:#525252;font-size:13px;padding:10px 12px;text-align:left;border:1px solid #E8E8E8;line-height:1.6;"><span leaf="">globals.css</span></td><td style="color:#525252;font-size:13px;padding:10px 12px;text-align:left;border:1px solid #E8E8E8;line-height:1.6;"><span leaf="">全局样式</span></td><td style="color:#525252;font-size:13px;padding:10px 12px;text-align:left;border:1px solid #E8E8E8;line-height:1.6;"><span leaf="">公司统一装修标准</span></td></tr><tr><td style="background:#FBFBFB;color:#525252;font-size:13px;padding:10px 12px;text-align:left;border:1px solid #E8E8E8;line-height:1.6;"><span leaf="">loading.tsx</span></td><td style="background:#FBFBFB;color:#525252;font-size:13px;padding:10px 12px;text-align:left;border:1px solid #E8E8E8;line-height:1.6;"><span leaf="">加载状态页面</span></td><td style="background:#FBFBFB;color:#525252;font-size:13px;padding:10px 12px;text-align:left;border:1px solid #E8E8E8;line-height:1.6;"><span leaf="">前台等待提示牌</span></td></tr><tr><td style="color:#525252;font-size:13px;padding:10px 12px;text-align:left;border:1px solid #E8E8E8;line-height:1.6;"><span leaf="">api/</span></td><td style="color:#525252;font-size:13px;padding:10px 12px;text-align:left;border:1px solid #E8E8E8;line-height:1.6;"><span leaf="">后端接口</span></td><td style="color:#525252;font-size:13px;padding:10px 12px;text-align:left;border:1px solid #E8E8E8;line-height:1.6;"><span leaf="">公司客服电话</span></td></tr><tr><td style="background:#FBFBFB;color:#525252;font-size:13px;padding:10px 12px;text-align:left;border:1px solid #E8E8E8;line-height:1.6;"><span leaf="">route.ts</span></td><td style="background:#FBFBFB;color:#525252;font-size:13px;padding:10px 12px;text-align:left;border:1px solid #E8E8E8;line-height:1.6;"><span leaf="">API 具体处理逻辑</span></td><td style="background:#FBFBFB;color:#525252;font-size:13px;padding:10px 12px;text-align:left;border:1px solid #E8E8E8;line-height:1.6;"><span leaf="">客服人员</span></td></tr></table></section>
+
+<!-- 第三章 -->
+<section style="margin-top:64px;margin-bottom:32px;padding:0 16px;">
+<p style="font-size:10px;color:#4A5D52;font-weight:600;letter-spacing:4px;margin:0 0 10px;text-transform:uppercase;"><span leaf="">03 · APP DIRECTORY</span></p>
+<p style="font-family:'Noto Serif SC',Georgia,'Times New Roman',serif;font-size:22px;font-weight:700;color:#2B2B2B;margin:0 0 16px;letter-spacing:0.5px;line-height:1.4;"><span leaf="">核心：app 目录</span></p>
+<section style="width:40px;height:2px;background:#4A5D52;"><span leaf=""><br></span></section>
+</section>
+
+<p style="margin-bottom:26px;font-size:15px;line-height:1.9;text-align:justify;color:#525252;padding:0 16px;"><span leaf="">app 是 Next.js 的核心，</span><span style="border-bottom:1.5px solid #B5C8BC;font-weight:500;"><span leaf="">一个文件/文件夹就是一个路由</span></span><span leaf="">。</span></p><p style="margin-bottom:26px;font-size:15px;line-height:1.9;text-align:justify;color:#525252;padding:0 16px;"><strong style="color:#2B2B2B;"><span leaf="">app/page.tsx —— 网站首页</span></strong><span leaf="">，对应访问路径 /。</span></p><section style="margin:0 16px 26px;border:1px solid #E8E8E8;border-radius:2px;padding:18px 16px;background:#FBFBFB;">
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">export default function Home(){</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">&nbsp;return (</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">&nbsp;&nbsp;&nbsp;<h1>Hello Next.js</h1></span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">&nbsp;)</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">}</span></p>
+</section><p style="margin-bottom:26px;font-size:15px;line-height:1.9;text-align:justify;color:#525252;padding:0 16px;"><span leaf="">生活比喻：</span><span style="border-bottom:1.5px solid #B5C8BC;font-weight:500;"><span leaf="">公司大门口的接待大厅</span></span><span leaf="">——别人进入公司第一眼看到这里。</span></p><p style="margin-bottom:26px;font-size:15px;line-height:1.9;text-align:justify;color:#525252;padding:0 16px;"><strong style="color:#2B2B2B;"><span leaf="">app/layout.tsx —— 全局布局</span></strong><span leaf="">，所有页面共享（导航栏、Footer、全局字体）。</span></p><section style="margin:0 16px 26px;border:1px solid #E8E8E8;border-radius:2px;padding:18px 16px;background:#FBFBFB;">
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">export default function RootLayout({ children }){</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">return (</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf=""><html></span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf=""><body></span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">{children}</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf=""></body></span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf=""></html></span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">)</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">}</span></p>
+</section><p style="margin-bottom:26px;font-size:15px;line-height:1.9;text-align:justify;color:#525252;padding:0 16px;"><span leaf="">生活比喻：</span><span style="border-bottom:1.5px solid #B5C8BC;font-weight:500;"><span leaf="">整栋办公楼的装修模板</span></span><span leaf="">——无论财务部、技术部还是市场部，大厅和楼层结构都一样。</span></p><p style="margin-bottom:26px;font-size:15px;line-height:1.9;text-align:justify;color:#525252;padding:0 16px;"><strong style="color:#2B2B2B;"><span leaf="">app/dashboard/page.tsx —— 自动生成路由</span></strong><span leaf=""> /dashboard。</span></p><p style="margin-bottom:26px;font-size:15px;line-height:1.9;text-align:justify;color:#525252;padding:0 16px;"><span leaf="">生活比喻：</span><span style="border-bottom:1.5px solid #B5C8BC;font-weight:500;"><span leaf="">公司里的某个部门</span></span><span leaf="">——比如 dashboard = 数据分析部门。</span></p><section style="margin-top:64px;margin-bottom:32px;padding:0 16px;">
+<p style="font-size:10px;color:#4A5D52;font-weight:600;letter-spacing:4px;margin:0 0 10px;text-transform:uppercase;"><span leaf="">04 · API</span></p>
+<p style="font-family:'Noto Serif SC',Georgia,'Times New Roman',serif;font-size:22px;font-weight:700;color:#2B2B2B;margin:0 0 16px;letter-spacing:0.5px;line-height:1.4;"><span leaf="">API 接口</span></p>
+<section style="width:40px;height:2px;background:#4A5D52;"><span leaf=""><br></span></section>
+</section><p style="margin-bottom:26px;font-size:15px;line-height:1.9;text-align:justify;color:#525252;padding:0 16px;"><span leaf="">app/api/users/route.ts 提供后端能力：前端说"我要用户列表"，调用 GET /api/users，后端返回数据。</span></p><section style="margin:0 16px 26px;border:1px solid #E8E8E8;border-radius:2px;padding:18px 16px;background:#FBFBFB;">
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">export async function GET(){</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">return Response.json({</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">&nbsp;users:[]</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">})</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">}</span></p>
+</section><p style="margin-bottom:26px;font-size:15px;line-height:1.9;text-align:justify;color:#525252;padding:0 16px;"><span leaf="">生活比喻：</span><span style="border-bottom:1.5px solid #B5C8BC;font-weight:500;"><span leaf="">公司服务热线</span></span><span leaf="">——客户打电话"我要查询订单"，客服查询后告诉你。</span></p><section style="margin-top:64px;margin-bottom:32px;padding:0 16px;">
+<p style="font-size:10px;color:#4A5D52;font-weight:600;letter-spacing:4px;margin:0 0 10px;text-transform:uppercase;"><span leaf="">05 · COMPONENTS</span></p>
+<p style="font-family:'Noto Serif SC',Georgia,'Times New Roman',serif;font-size:22px;font-weight:700;color:#2B2B2B;margin:0 0 16px;letter-spacing:0.5px;line-height:1.4;"><span leaf="">components 组件</span></p>
+<section style="width:40px;height:2px;background:#4A5D52;"><span leaf=""><br></span></section>
+</section><section style="margin:0 16px 26px;border:1px solid #E8E8E8;border-radius:2px;padding:18px 16px;background:#FBFBFB;">
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">components</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">│</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">├── Button.tsx</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">├── Navbar.tsx</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">└── UserCard.tsx</span></p>
+</section><p style="margin-bottom:26px;font-size:15px;line-height:1.9;text-align:justify;color:#525252;padding:0 16px;"><span leaf="">作用：</span><span style="border-bottom:1.5px solid #B5C8BC;font-weight:500;"><span leaf="">复用 UI 组件</span></span><span leaf="">——写一次 Button，每个页面都能用，不用重写。生活比喻：</span><span style="border-bottom:1.5px solid #B5C8BC;font-weight:500;"><span leaf="">公司里的标准化设备</span></span><span leaf="">（办公桌、打印机、电话），每个部门都可以使用。</span></p><section style="margin-top:64px;margin-bottom:32px;padding:0 16px;">
+<p style="font-size:10px;color:#4A5D52;font-weight:600;letter-spacing:4px;margin:0 0 10px;text-transform:uppercase;"><span leaf="">06 · LIB</span></p>
+<p style="font-family:'Noto Serif SC',Georgia,'Times New Roman',serif;font-size:22px;font-weight:700;color:#2B2B2B;margin:0 0 16px;letter-spacing:0.5px;line-height:1.4;"><span leaf="">lib 目录</span></p>
+<section style="width:40px;height:2px;background:#4A5D52;"><span leaf=""><br></span></section>
+</section><p style="margin-bottom:26px;font-size:15px;line-height:1.9;text-align:justify;color:#525252;padding:0 16px;"><span leaf="">这里放业务工具：auth.ts（用户认证：login/logout/checkUser）、db.ts（数据库连接）、utils.ts（通用函数：日期格式化）。</span></p><p style="margin-bottom:26px;font-size:15px;line-height:1.9;text-align:justify;color:#525252;padding:0 16px;"><span leaf="">生活比喻：auth.ts 是</span><span style="border-bottom:1.5px solid #B5C8BC;font-weight:500;"><span leaf="">人事部门</span></span><span leaf="">（员工身份/入职/离职），db.ts 是</span><span style="border-bottom:1.5px solid #B5C8BC;font-weight:500;"><span leaf="">档案管理员</span></span><span leaf="">（查员工资料），utils.ts 是</span><span style="border-bottom:1.5px solid #B5C8BC;font-weight:500;"><span leaf="">公司行政助手</span></span><span leaf="">（处理各种杂事）。</span></p><section style="margin-top:64px;margin-bottom:32px;padding:0 16px;">
+<p style="font-size:10px;color:#4A5D52;font-weight:600;letter-spacing:4px;margin:0 0 10px;text-transform:uppercase;"><span leaf="">07 · DATABASE</span></p>
+<p style="font-family:'Noto Serif SC',Georgia,'Times New Roman',serif;font-size:22px;font-weight:700;color:#2B2B2B;margin:0 0 16px;letter-spacing:0.5px;line-height:1.4;"><span leaf="">database 目录</span></p>
+<section style="margin:0 16px 30px;border:1px solid #E8E8E8;"><section style="margin:0;overflow:hidden;"><span leaf=""><img src="images/day9-illus-archive.png" style="max-width:100%;display:block;"></span></section></section>
+<section style="width:40px;height:2px;background:#4A5D52;"><span leaf=""><br></span></section>
+</section><section style="margin:0 16px 26px;border:1px solid #E8E8E8;border-radius:2px;padding:18px 16px;background:#FBFBFB;">
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">users</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">id</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">name</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">email</span></p>
+</section><p style="margin-bottom:26px;font-size:15px;line-height:1.9;text-align:justify;color:#525252;padding:0 16px;"><span leaf="">存数据库结构（schema.sql）。生活比喻：</span><span style="border-bottom:1.5px solid #B5C8BC;font-weight:500;"><span leaf="">公司员工档案柜</span></span><span leaf="">。</span></p><section style="margin-top:64px;margin-bottom:32px;padding:0 16px;">
+<p style="font-size:10px;color:#4A5D52;font-weight:600;letter-spacing:4px;margin:0 0 10px;text-transform:uppercase;"><span leaf="">08 · PUBLIC</span></p>
+<p style="font-family:'Noto Serif SC',Georgia,'Times New Roman',serif;font-size:22px;font-weight:700;color:#2B2B2B;margin:0 0 16px;letter-spacing:0.5px;line-height:1.4;"><span leaf="">public 目录</span></p>
+<section style="width:40px;height:2px;background:#4A5D52;"><span leaf=""><br></span></section>
+</section><p style="margin-bottom:26px;font-size:15px;line-height:1.9;text-align:justify;color:#525252;padding:0 16px;"><span leaf="">存静态资源：图片、图标、favicon，访问路径直接 /logo.png。生活比喻：</span><span style="border-bottom:1.5px solid #B5C8BC;font-weight:500;"><span leaf="">公司宣传仓库</span></span><span leaf="">——存 Logo、海报、宣传册。</span></p><section style="margin-top:64px;margin-bottom:32px;padding:0 16px;">
+<p style="font-size:10px;color:#4A5D52;font-weight:600;letter-spacing:4px;margin:0 0 10px;text-transform:uppercase;"><span leaf="">09 · CONFIG</span></p>
+<p style="font-family:'Noto Serif SC',Georgia,'Times New Roman',serif;font-size:22px;font-weight:700;color:#2B2B2B;margin:0 0 16px;letter-spacing:0.5px;line-height:1.4;"><span leaf="">config 目录</span></p>
+<section style="width:40px;height:2px;background:#4A5D52;"><span leaf=""><br></span></section>
+</section><section style="margin:0 16px 26px;border:1px solid #E8E8E8;border-radius:2px;padding:18px 16px;background:#FBFBFB;">
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">export const site={</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">&nbsp;name:"AI助手",</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">&nbsp;url:"xxx.com"</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">}</span></p>
+</section><p style="margin-bottom:26px;font-size:15px;line-height:1.9;text-align:justify;color:#525252;padding:0 16px;"><span leaf="">存配置。生活比喻：</span><span style="border-bottom:1.5px solid #B5C8BC;font-weight:500;"><span leaf="">公司制度手册</span></span><span leaf="">——规定公司名字、联系方式、默认设置。</span></p><section style="margin-top:64px;margin-bottom:32px;padding:0 16px;">
+<p style="font-size:10px;color:#4A5D52;font-weight:600;letter-spacing:4px;margin:0 0 10px;text-transform:uppercase;"><span leaf="">10 · MIDDLEWARE</span></p>
+<p style="font-family:'Noto Serif SC',Georgia,'Times New Roman',serif;font-size:22px;font-weight:700;color:#2B2B2B;margin:0 0 16px;letter-spacing:0.5px;line-height:1.4;"><span leaf="">middleware.ts</span></p>
+<section style="margin:0 16px 30px;border:1px solid #E8E8E8;"><section style="margin:0;overflow:hidden;"><span leaf=""><img src="images/day9-illus-guard.png" style="max-width:100%;display:block;"></span></section></section>
+<section style="width:40px;height:2px;background:#4A5D52;"><span leaf=""><br></span></section>
+</section><p style="margin-bottom:26px;font-size:15px;line-height:1.9;text-align:justify;color:#525252;padding:0 16px;"><span leaf="">请求进入网站之前执行。比如用户访问 /dashboard，先检查"登录了吗？"没有就跳到 /login。</span></p><section style="margin:0 16px 26px;border:1px solid #E8E8E8;border-radius:2px;padding:18px 16px;background:#FBFBFB;">
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">访客</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">&nbsp;|</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">门卫检查</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">&nbsp;|</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">允许进入</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">&nbsp;|</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">进入办公室</span></p>
+</section><p style="margin-bottom:26px;font-size:15px;line-height:1.9;text-align:justify;color:#525252;padding:0 16px;"><span leaf="">生活比喻：</span><span style="border-bottom:1.5px solid #B5C8BC;font-weight:500;"><span leaf="">公司门卫</span></span><span leaf="">。</span></p><section style="margin-top:64px;margin-bottom:32px;padding:0 16px;">
+<p style="font-size:10px;color:#4A5D52;font-weight:600;letter-spacing:4px;margin:0 0 10px;text-transform:uppercase;"><span leaf="">11 · CONFIGS</span></p>
+<p style="font-family:'Noto Serif SC',Georgia,'Times New Roman',serif;font-size:22px;font-weight:700;color:#2B2B2B;margin:0 0 16px;letter-spacing:0.5px;line-height:1.4;"><span leaf="">配置文件</span></p>
+<section style="width:40px;height:2px;background:#4A5D52;"><span leaf=""><br></span></section>
+</section><section style="margin:0 16px 30px;overflow-x:auto;"><table style="width:100%;border-collapse:collapse;"><tr><td style="background:#EEF3F0;color:#3D5046;font-size:13px;font-weight:600;padding:10px 12px;text-align:left;border:1px solid #E8E8E8;"><span leaf="">文件</span></td><td style="background:#EEF3F0;color:#3D5046;font-size:13px;font-weight:600;padding:10px 12px;text-align:left;border:1px solid #E8E8E8;"><span leaf="">作用</span></td><td style="background:#EEF3F0;color:#3D5046;font-size:13px;font-weight:600;padding:10px 12px;text-align:left;border:1px solid #E8E8E8;"><span leaf="">比喻</span></td></tr><tr><td style="background:#FBFBFB;color:#525252;font-size:13px;padding:10px 12px;text-align:left;border:1px solid #E8E8E8;line-height:1.6;"><span leaf="">package.json</span></td><td style="background:#FBFBFB;color:#525252;font-size:13px;padding:10px 12px;text-align:left;border:1px solid #E8E8E8;line-height:1.6;"><span leaf="">项目依赖和脚本</span></td><td style="background:#FBFBFB;color:#525252;font-size:13px;padding:10px 12px;text-align:left;border:1px solid #E8E8E8;line-height:1.6;"><span leaf="">公司采购清单</span></td></tr><tr><td style="color:#525252;font-size:13px;padding:10px 12px;text-align:left;border:1px solid #E8E8E8;line-height:1.6;"><span leaf="">next.config.js</span></td><td style="color:#525252;font-size:13px;padding:10px 12px;text-align:left;border:1px solid #E8E8E8;line-height:1.6;"><span leaf="">Next 配置</span></td><td style="color:#525252;font-size:13px;padding:10px 12px;text-align:left;border:1px solid #E8E8E8;line-height:1.6;"><span leaf="">公司运营规则</span></td></tr><tr><td style="background:#FBFBFB;color:#525252;font-size:13px;padding:10px 12px;text-align:left;border:1px solid #E8E8E8;line-height:1.6;"><span leaf="">tailwind.config.ts</span></td><td style="background:#FBFBFB;color:#525252;font-size:13px;padding:10px 12px;text-align:left;border:1px solid #E8E8E8;line-height:1.6;"><span leaf="">CSS 设计规范</span></td><td style="background:#FBFBFB;color:#525252;font-size:13px;padding:10px 12px;text-align:left;border:1px solid #E8E8E8;line-height:1.6;"><span leaf="">装修规范</span></td></tr><tr><td style="color:#525252;font-size:13px;padding:10px 12px;text-align:left;border:1px solid #E8E8E8;line-height:1.6;"><span leaf="">tsconfig.json</span></td><td style="color:#525252;font-size:13px;padding:10px 12px;text-align:left;border:1px solid #E8E8E8;line-height:1.6;"><span leaf="">TypeScript 配置</span></td><td style="color:#525252;font-size:13px;padding:10px 12px;text-align:left;border:1px solid #E8E8E8;line-height:1.6;"><span leaf="">员工工作标准</span></td></tr><tr><td style="background:#FBFBFB;color:#525252;font-size:13px;padding:10px 12px;text-align:left;border:1px solid #E8E8E8;line-height:1.6;"><span leaf="">.env</span></td><td style="background:#FBFBFB;color:#525252;font-size:13px;padding:10px 12px;text-align:left;border:1px solid #E8E8E8;line-height:1.6;"><span leaf="">环境变量</span></td><td style="background:#FBFBFB;color:#525252;font-size:13px;padding:10px 12px;text-align:left;border:1px solid #E8E8E8;line-height:1.6;"><span leaf="">保险柜里的密码</span></td></tr></table></section><section style="margin-top:64px;margin-bottom:32px;padding:0 16px;">
+<p style="font-size:10px;color:#4A5D52;font-weight:600;letter-spacing:4px;margin:0 0 10px;text-transform:uppercase;"><span leaf="">12 · REQUEST FLOW</span></p>
+<p style="font-family:'Noto Serif SC',Georgia,'Times New Roman',serif;font-size:22px;font-weight:700;color:#2B2B2B;margin:0 0 16px;letter-spacing:0.5px;line-height:1.4;"><span leaf="">一个请求的完整流程</span></p>
+<section style="width:40px;height:2px;background:#4A5D52;"><span leaf=""><br></span></section>
+</section><section style="margin:0 16px 26px;border:1px solid #E8E8E8;border-radius:2px;padding:18px 16px;background:#FBFBFB;">
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">用户</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">&nbsp;|</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">&nbsp;↓</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">middleware.ts（门卫检查）</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">&nbsp;|</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">&nbsp;↓</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">app/dashboard/page.tsx（进入部门办公室）</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">&nbsp;|</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">&nbsp;↓</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">components（调用各种设备）</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">&nbsp;|</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">&nbsp;↓</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">lib（调用公司能力中心）</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">&nbsp;|</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">&nbsp;↓</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">database（查询档案）</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">&nbsp;|</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">&nbsp;↓</span></p>
+<p style="margin:0;font-family:Consolas,'Courier New',monospace;font-size:13px;color:#3D5046;line-height:1.75;"><span leaf="">返回页面</span></p>
+</section><section style="margin-top:64px;margin-bottom:32px;padding:0 16px;">
+<p style="font-size:10px;color:#4A5D52;font-weight:600;letter-spacing:4px;margin:0 0 10px;text-transform:uppercase;"><span leaf="">13 · COMPANY VIEW</span></p>
+<p style="font-family:'Noto Serif SC',Georgia,'Times New Roman',serif;font-size:22px;font-weight:700;color:#2B2B2B;margin:0 0 16px;letter-spacing:0.5px;line-height:1.4;"><span leaf="">用公司架构理解 Next.js</span></p>
+<section style="width:40px;height:2px;background:#4A5D52;"><span leaf=""><br></span></section>
+</section><section style="margin:0 16px 8px;border:1px solid #E8E8E8;"><section style="margin:0;overflow:hidden;"><span leaf=""><img src="images/day9-shot-file-20260809224738734.png" style="max-width:100%;display:block;"></span></section></section><p style="font-size:12px;color:#A3A3A3;text-align:center;margin:8px 16px 32px;letter-spacing:0.5px;"><span leaf="">— 公司比喻总览图</span></p><section style="margin:40px 16px;padding:36px 20px;border-top:1px solid #E8E8E8;border-bottom:1px solid #E8E8E8;text-align:center;">
+<p style="font-family:'Noto Serif SC',Georgia,'Times New Roman',serif;font-size:17px;font-weight:600;color:#2B2B2B;margin:0;line-height:1.9;letter-spacing:0.8px;"><span leaf="">「Next.js 项目就是一家公司：app 负责接待客户和处理业务，components 提供工具，lib 提供能力，database 保存资产，middleware 负责安保，config 负责制度。」</span></p>
+</section><p style="margin-bottom:26px;font-size:15px;line-height:1.9;text-align:justify;color:#525252;padding:0 16px;"><span leaf="">刚开始接触 Next.js 的朋友理解这个结构后，再学 SSR、Server Component、API Route、Supabase 集成，会容易很多。</span><span style="border-bottom:1.5px solid #B5C8BC;font-weight:500;"><span leaf="">Node.js 是运行环境</span></span><span leaf="">——对应的就是这个结构里的 app + lib + api 都运行在 Node.js 环境里。</span></p><section style="margin:0 16px 8px;border:1px solid #E8E8E8;"><section style="margin:0;overflow:hidden;"><span leaf=""><img src="images/day9-shot-file-20260809224738734%201.png" style="max-width:100%;display:block;"></span></section></section><p style="font-size:12px;color:#A3A3A3;text-align:center;margin:8px 16px 32px;letter-spacing:0.5px;"><span leaf="">— 完整架构图</span></p><section style="padding:0 16px;">
+<section style="text-align:center;margin:48px 0 40px;">
+<section style="display:flex;align-items:center;justify-content:center;">
+<span style="height:1px;width:48px;background:#E8E8E8;margin-right:16px;"></span>
+<span style="font-size:10px;color:#A3A3A3;letter-spacing:4px;font-weight:400;"><span leaf="">END</span></span>
+<span style="height:1px;width:48px;background:#E8E8E8;margin-left:16px;"></span>
+</section>
+</section>
+</section>
+
+<section style="padding:0 16px 40px;">
+<p style="margin-bottom:26px;font-size:15px;line-height:1.9;text-align:justify;color:#525252;"><span leaf="">我是未迟，正在挑战 30 天自学 Web 出海。</span></p>
+<p style="margin-bottom:26px;font-size:15px;line-height:1.9;text-align:justify;color:#525252;"><span leaf="">如果你觉得今天这篇有收获，欢迎</span><strong style="color:#4A5D52;"><span leaf="">点赞、在看、转发</span></strong><span leaf="">三连，我们下篇见。</span></p>
+</section>
+</section>
