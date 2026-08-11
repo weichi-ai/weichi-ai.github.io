@@ -1,0 +1,140 @@
+<section style="max-width:677px;margin:0 auto;background:#ffffff;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;color:#374151;line-height:1.75;letter-spacing:0.5px;overflow-x:hidden;">
+
+<!-- 引言卡 -->
+<section style="margin:10px 14px 32px;background:#ffffff;border-radius:12px;box-shadow:0 4px 24px -4px rgba(220,38,38,0.15);padding:28px 22px 22px;overflow:hidden;">
+<p style="font-size:42px;color:#DC2626;font-weight:900;margin:0;line-height:0.6;"><span leaf="">"</span></p>
+<p style="font-size:16px;font-weight:800;color:#1C1917;margin:12px 0 8px;line-height:1.75;padding-left:4px;">
+<span style="background:#DC2626;color:#FFFFFF;padding:2px 8px;border-radius:4px;"><span leaf="">API 就是软件之间的"点餐服务"</span></span>
+<span leaf="">——你不用进厨房，菜单点菜，服务员端菜。</span>
+</p>
+<p style="text-align:right;font-size:12px;color:#9CA3AF;margin:8px 0 0;letter-spacing:1px;"><span leaf="">—— 未迟 · 第11天手记</span></p>
+</section>
+
+<!-- 前言 -->
+<p style="margin-bottom:20px;font-size:15px;line-height:1.8;text-align:justify;padding:0 14px;"><span leaf="">来到第 11 天，今天的内容有 IDE、GitHub、API、环境变量，我挑一个来分享：</span><span style="border-bottom:2px solid #FECACA;font-weight:600;"><span leaf="">主要讲讲 API</span></span><span leaf="">。为了照顾没有技术背景的观众，尽量写得浅显易懂一些。</span></p><section style="padding:0 14px 32px;">
+<p style="font-size:14px;color:#9CA3AF;margin:0 0 14px;letter-spacing:1px;"><span leaf="">📌 本文看点</span></p>
+<section style="display:flex;justify-content:space-between;">
+<section style="flex:1;background:#FEF2F2;border-radius:10px;padding:16px 12px;margin-right:8px;text-align:center;border:1px solid #FEE2E2;">
+<p style="display:inline-block;background:#DC2626;color:#FFFFFF;font-size:12px;font-weight:800;padding:2px 10px;border-radius:4px;margin:0 0 8px;"><span leaf="">01</span></p>
+<p style="font-size:13px;font-weight:700;color:#1C1917;margin:0;"><span leaf="">什么是 API</span></p>
+</section>
+<section style="flex:1;background:#FEF2F2;border-radius:10px;padding:16px 12px;margin-right:8px;text-align:center;border:1px solid #FEE2E2;">
+<p style="display:inline-block;background:#DC2626;color:#FFFFFF;font-size:12px;font-weight:800;padding:2px 10px;border-radius:4px;margin:0 0 8px;"><span leaf="">02</span></p>
+<p style="font-size:13px;font-weight:700;color:#1C1917;margin:0;"><span leaf="">为什么需要 API</span></p>
+</section>
+<section style="flex:1;background:#FEF2F2;border-radius:10px;padding:16px 12px;text-align:center;border:1px solid #FEE2E2;">
+<p style="display:inline-block;background:#DC2626;color:#FFFFFF;font-size:12px;font-weight:800;padding:2px 10px;border-radius:4px;margin:0 0 8px;"><span leaf="">03</span></p>
+<p style="font-size:13px;font-weight:700;color:#1C1917;margin:0;"><span leaf="">Postman 实战</span></p>
+</section>
+</section>
+</section><section style="margin-top:16px;margin-bottom:28px;padding:0 14px;">
+<section style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;padding-bottom:14px;border-bottom:3px solid #DC2626;">
+<section style="display:flex;align-items:center;">
+<span style="display:inline-block;background:#DC2626;color:#FFFFFF;font-size:18px;font-weight:900;padding:4px 14px;border-radius:6px;margin-right:14px;line-height:1.3;"><span leaf="">01</span></span>
+<section>
+<p style="font-size:10px;color:#DC2626;font-weight:700;letter-spacing:3px;margin:0 0 2px;text-transform:uppercase;"><span leaf="">WHAT IS API</span></p>
+<p style="font-size:18px;font-weight:800;color:#1C1917;margin:0;letter-spacing:0.5px;"><span leaf="">什么是 API？</span></p>
+</section>
+</section>
+</section>
+</section><section style="background:#FEF2F2;border-radius:0 10px 10px 0;border-left:4px solid #DC2626;padding:18px 22px;margin:0 14px 24px;"><p style="font-size:16px;font-weight:800;color:#991B1B;margin:0;line-height:1.8;"><span leaf="">「API 就是 Application Programming Interface 的缩写，应用程序接口，是"软件之间沟通的桥梁"。」</span></p></section><p style="margin-bottom:20px;font-size:15px;line-height:1.8;text-align:justify;padding:0 14px;"><span leaf="">如果一个软件想使用另一个软件的能力，</span><span style="border-bottom:2px solid #FECACA;font-weight:600;"><span leaf="">不需要知道里面怎么做</span></span><span leaf="">，只需要通过 API 提出请求，然后拿到结果。</span></p><p style="font-size:15px;font-weight:800;color:#1C1917;margin:28px 0 14px;padding-left:10px;border-left:3px solid #DC2626;line-height:1.4;padding:0 14px 0 24px;"><span leaf="">这有点像餐厅点餐</span></p><p style="margin-bottom:20px;font-size:15px;line-height:1.8;text-align:justify;padding:0 14px;"><span leaf="">想象你去一家餐厅，你不会直接跑进厨房喊"厨师，给我炒个蛋炒饭！"因为：你不知道厨房怎么操作、不知道食材在哪里、可能把厨房搞乱。</span><span style="border-bottom:2px solid #FECACA;font-weight:600;"><span leaf="">所以你指着菜单告诉服务员："我要一份蛋炒饭。"</span></span><span leaf="">服务员把你的需求告诉厨房，厨房制作，把结果端回来。</span></p><section style="margin:0 14px 24px;overflow-x:auto;"><table style="width:100%;border-collapse:collapse;font-size:14px;"><tr><th style="background:#DC2626;color:#fff;font-weight:700;padding:8px 12px;text-align:left;"><span leaf="">餐厅</span></th><th style="background:#DC2626;color:#fff;font-weight:700;padding:8px 12px;text-align:left;"><span leaf="">软件世界</span></th></tr><tr><td style="padding:8px 12px;border-bottom:1px solid #FEE2E2;color:#374151;background:#FEF2F2;"><span leaf="">顾客</span></td><td style="padding:8px 12px;border-bottom:1px solid #FEE2E2;color:#374151;background:#FEF2F2;"><span leaf="">你的程序</span></td></tr><tr><td style="padding:8px 12px;border-bottom:1px solid #FEE2E2;color:#374151;"><span leaf="">菜单</span></td><td style="padding:8px 12px;border-bottom:1px solid #FEE2E2;color:#374151;"><span leaf="">API</span></td></tr><tr><td style="padding:8px 12px;border-bottom:1px solid #FEE2E2;color:#374151;background:#FEF2F2;"><span leaf="">厨房</span></td><td style="padding:8px 12px;border-bottom:1px solid #FEE2E2;color:#374151;background:#FEF2F2;"><span leaf="">服务器/系统</span></td></tr><tr><td style="padding:8px 12px;border-bottom:1px solid #FEE2E2;color:#374151;"><span leaf="">菜品</span></td><td style="padding:8px 12px;border-bottom:1px solid #FEE2E2;color:#374151;"><span leaf="">返回的数据</span></td></tr></table></section><section style="margin-top:48px;margin-bottom:28px;padding:0 14px;">
+<section style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;padding-bottom:14px;border-bottom:3px solid #DC2626;">
+<section style="display:flex;align-items:center;">
+<span style="display:inline-block;background:#DC2626;color:#FFFFFF;font-size:18px;font-weight:900;padding:4px 14px;border-radius:6px;margin-right:14px;line-height:1.3;"><span leaf="">02</span></span>
+<section>
+<p style="font-size:10px;color:#DC2626;font-weight:700;letter-spacing:3px;margin:0 0 2px;text-transform:uppercase;"><span leaf="">WHY API</span></p>
+<p style="font-size:18px;font-weight:800;color:#1C1917;margin:0;letter-spacing:0.5px;"><span leaf="">为什么要有 API？</span></p>
+</section>
+</section>
+</section>
+</section><p style="font-size:15px;font-weight:800;color:#1C1917;margin:28px 0 14px;padding-left:10px;border-left:3px solid #DC2626;line-height:1.4;padding:0 14px 0 24px;"><span leaf="">如果没有 API 会怎样？</span></p><p style="margin-bottom:20px;font-size:15px;line-height:1.8;text-align:justify;padding:0 14px;"><span leaf="">假设你开发一个天气 App，想显示"上海今天多少度？"怎么办？</span><span style="border-bottom:2px solid #FECACA;font-weight:600;"><span leaf="">自己买气象卫星、建气象站、收集全球天气数据、开发天气预测模型？</span></span><span leaf="">成本巨大也不太现实。</span></p><p style="margin-bottom:20px;font-size:15px;line-height:1.8;text-align:justify;padding:0 14px;"><span leaf="">但是有 API：天气公司已经做好——天气系统 → 天气 API → 你的 App。你的 App 只需要问：请告诉我上海天气。</span></p><section style="background:#FEF2F2;border-radius:10px;padding:18px 20px;margin:0 14px 24px;border:1px solid #FECACA;">
+<p style="font-size:15px;color:#374151;margin:0;line-height:1.8;text-align:justify;font-family:Consolas,monospace;"><span leaf="">{ "city": "上海", "temperature": 32, "weather": "晴" }</span></p>
+</section><p style="margin-bottom:20px;font-size:15px;line-height:1.8;text-align:justify;padding:0 14px;"><span leaf="">你显示：☀️ 上海 32℃ 晴。</span></p><p style="font-size:15px;font-weight:800;color:#1C1917;margin:28px 0 14px;padding-left:10px;border-left:3px solid #DC2626;line-height:1.4;padding:0 14px 0 24px;"><span leaf="">API 的核心价值</span></p><p style="margin-bottom:20px;font-size:15px;line-height:1.8;text-align:justify;padding:0 14px;"><strong style="color:#DC2626;"><span leaf="">1. 复用能力</span></strong><span leaf="">——别人已经造好的轮子，你直接使用。比如：支付，不用自己造银行系统，调用支付宝 API、微信支付 API；地图，不用自己测绘，调用高德地图 API；AI，不用自己训练大模型，调用 OpenAI API、Claude API、豆包 API。</span></p><p style="margin-bottom:20px;font-size:15px;line-height:1.8;text-align:justify;padding:0 14px;"><strong style="color:#DC2626;"><span leaf="">2. 隔离复杂性</span></strong><span leaf="">——比如 ChatGPT：你看到的是"输入：帮我写一篇文章；输出：文章内容"。背后其实是你的程序 → API → 大模型服务器 → GPU 计算 → 返回结果。你不用懂 Transformer、GPU 并行、模型参数，只需要调用 API。</span></p><section style="margin-top:48px;margin-bottom:28px;padding:0 14px;">
+<section style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;padding-bottom:14px;border-bottom:3px solid #DC2626;">
+<section style="display:flex;align-items:center;">
+<span style="display:inline-block;background:#DC2626;color:#FFFFFF;font-size:18px;font-weight:900;padding:4px 14px;border-radius:6px;margin-right:14px;line-height:1.3;"><span leaf="">03</span></span>
+<section>
+<p style="font-size:10px;color:#DC2626;font-weight:700;letter-spacing:3px;margin:0 0 2px;text-transform:uppercase;"><span leaf="">HOW TO USE</span></p>
+<p style="font-size:18px;font-weight:800;color:#1C1917;margin:0;letter-spacing:0.5px;"><span leaf="">如何使用 API？</span></p>
+</section>
+</section>
+</section>
+</section><p style="margin-bottom:20px;font-size:15px;line-height:1.8;text-align:justify;padding:0 14px;"><span leaf="">你需要拿到</span><span style="border-bottom:2px solid #FECACA;font-weight:600;"><span leaf="">API 三件套：调用地址、访问密钥、调用示例</span></span><span leaf="">。有的 API 会提供测试和生产两套信息；也有些测试和生产是同一套，有少量测试用量，超了就停止服务或开启计费。</span></p><p style="margin-bottom:20px;font-size:15px;line-height:1.8;text-align:justify;padding:0 14px;"><span leaf="">在正式接入 API 前，推荐用 Postman 先"验货"再接入代码——因为</span><strong style="color:#DC2626;"><span leaf="">如果在实际写代码前就先把 API 调通，会对 AI 写代码增加很大的确定性</span></strong><span leaf="">。接下来以调用火山引擎的生图模型为例，展开说说 Postman 的用法：</span></p><section style="margin-bottom:22px;">
+<section style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+<span style="display:inline-block;background:#DC2626;color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;"><span leaf="">STEP 01</span></span>
+<span style="font-size:15px;font-weight:800;color:#1C1917;"><span leaf="">先安装 Postman</span></span>
+</section>
+<p style="font-size:15px;margin:0 0 16px;color:#374151;line-height:1.8;text-align:justify;padding:0 14px;"><span leaf="">从 https://www.postman.com/ 下载并安装。安装完成后可以去了解下用法。</span></p>
+</section><section style="background:#FFF;border-radius:12px;padding:6px;border:1px solid #E5E7EB;box-shadow:0 4px 12px -2px rgba(0,0,0,0.08);margin:0 14px 8px;"><section style="margin:0;border-radius:8px;overflow:hidden;"><span leaf=""><img src="images/day11-screenshot-01.png" style="max-width:100%;height:auto;display:block;margin:0 auto;"></span></section></section><p style="font-size:12px;color:#9CA3AF;text-align:center;margin:0 0 24px;"><span leaf="">— Postman 安装页</span></p><section style="margin-bottom:22px;">
+<section style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+<span style="display:inline-block;background:#DC2626;color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;"><span leaf="">STEP 02</span></span>
+<span style="font-size:15px;font-weight:800;color:#1C1917;"><span leaf="">找到生图模型的 API</span></span>
+</section>
+<p style="font-size:15px;margin:0 0 16px;color:#374151;line-height:1.8;text-align:justify;padding:0 14px;"><span leaf="">发现它并没有传统的 API 示例，只有 Curl、Python、Java、Go、OpenAI 这几种——不着急。</span></p>
+</section><section style="background:#FFF;border-radius:12px;padding:6px;border:1px solid #E5E7EB;box-shadow:0 4px 12px -2px rgba(0,0,0,0.08);margin:0 14px 8px;"><section style="margin:0;border-radius:8px;overflow:hidden;"><span leaf=""><img src="images/day11-screenshot-02.png" style="max-width:100%;height:auto;display:block;margin:0 auto;"></span></section></section><p style="font-size:12px;color:#9CA3AF;text-align:center;margin:0 0 24px;"><span leaf="">— API 示例格式</span></p><section style="margin-bottom:22px;">
+<section style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+<span style="display:inline-block;background:#DC2626;color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;"><span leaf="">STEP 03</span></span>
+<span style="font-size:15px;font-weight:800;color:#1C1917;"><span leaf="">选择 curl 格式，点击复制</span></span>
+</section>
+<p style="font-size:15px;margin:0 0 16px;color:#374151;line-height:1.8;text-align:justify;padding:0 14px;"><span leaf="">复制到剪贴板。</span></p>
+</section><section style="background:#FFF;border-radius:12px;padding:6px;border:1px solid #E5E7EB;box-shadow:0 4px 12px -2px rgba(0,0,0,0.08);margin:0 14px 8px;"><section style="margin:0;border-radius:8px;overflow:hidden;"><span leaf=""><img src="images/day11-screenshot-03.png" style="max-width:100%;height:auto;display:block;margin:0 auto;"></span></section></section><p style="font-size:12px;color:#9CA3AF;text-align:center;margin:0 0 24px;"><span leaf="">— 复制 curl</span></p><section style="margin-bottom:22px;">
+<section style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+<span style="display:inline-block;background:#DC2626;color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;"><span leaf="">STEP 04</span></span>
+<span style="font-size:15px;font-weight:800;color:#1C1917;"><span leaf="">来到 Postman 中点击 Import（导入）</span></span>
+</section>
+<p style="font-size:15px;margin:0 0 16px;color:#374151;line-height:1.8;text-align:justify;padding:0 14px;"><span leaf="">可以看到 Postman 自动把 curl 转换成它要的格式了，Body 就是发给 API 的请求内容。</span></p>
+</section><section style="background:#FFF;border-radius:12px;padding:6px;border:1px solid #E5E7EB;box-shadow:0 4px 12px -2px rgba(0,0,0,0.08);margin:0 14px 8px;"><section style="margin:0;border-radius:8px;overflow:hidden;"><span leaf=""><img src="images/day11-screenshot-04.png" style="max-width:100%;height:auto;display:block;margin:0 auto;"></span></section></section><p style="font-size:12px;color:#9CA3AF;text-align:center;margin:0 0 24px;"><span leaf="">— 导入 curl</span></p><section style="background:#FFF;border-radius:12px;padding:6px;border:1px solid #E5E7EB;box-shadow:0 4px 12px -2px rgba(0,0,0,0.08);margin:0 14px 8px;"><section style="margin:0;border-radius:8px;overflow:hidden;"><span leaf=""><img src="images/day11-screenshot-05.png" style="max-width:100%;height:auto;display:block;margin:0 auto;"></span></section></section><p style="font-size:12px;color:#9CA3AF;text-align:center;margin:0 0 24px;"><span leaf="">— Body 请求内容</span></p><section style="margin-bottom:22px;">
+<section style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+<span style="display:inline-block;background:#DC2626;color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;"><span leaf="">STEP 05</span></span>
+<span style="font-size:15px;font-weight:800;color:#1C1917;"><span leaf="">替换 API KEY</span></span>
+</section>
+<p style="font-size:15px;margin:0 0 16px;color:#374151;line-height:1.8;text-align:justify;padding:0 14px;"><span leaf="">前面说了需要一把钥匙——Postman 自动把它解析到 Header 下面了。把 $ARK_API_KEY 这几个字符替换成你自己的 KEY。注意：不要删除 Bearer，后面还有个空格也不要删。</span></p>
+</section><section style="background:#FFF;border-radius:12px;padding:6px;border:1px solid #E5E7EB;box-shadow:0 4px 12px -2px rgba(0,0,0,0.08);margin:0 14px 8px;"><section style="margin:0;border-radius:8px;overflow:hidden;"><span leaf=""><img src="images/day11-screenshot-06.png" style="max-width:100%;height:auto;display:block;margin:0 auto;"></span></section></section><p style="font-size:12px;color:#9CA3AF;text-align:center;margin:0 0 24px;"><span leaf="">— Header 中的密钥</span></p><section style="background:#FFF;border-radius:12px;padding:6px;border:1px solid #E5E7EB;box-shadow:0 4px 12px -2px rgba(0,0,0,0.08);margin:0 14px 8px;"><section style="margin:0;border-radius:8px;overflow:hidden;"><span leaf=""><img src="images/day11-screenshot-07.png" style="max-width:100%;height:auto;display:block;margin:0 auto;"></span></section></section><p style="font-size:12px;color:#9CA3AF;text-align:center;margin:0 0 24px;"><span leaf="">— 替换 API KEY</span></p><section style="margin-bottom:22px;">
+<section style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+<span style="display:inline-block;background:#DC2626;color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;"><span leaf="">STEP 06</span></span>
+<span style="font-size:15px;font-weight:800;color:#1C1917;"><span leaf="">发送 API 请求</span></span>
+</section>
+<p style="font-size:15px;margin:0 0 16px;color:#374151;line-height:1.8;text-align:justify;padding:0 14px;"><span leaf="">点击 Send，发送 API 请求。</span></p>
+</section><section style="background:#FFF;border-radius:12px;padding:6px;border:1px solid #E5E7EB;box-shadow:0 4px 12px -2px rgba(0,0,0,0.08);margin:0 14px 8px;"><section style="margin:0;border-radius:8px;overflow:hidden;"><span leaf=""><img src="images/day11-screenshot-08.png" style="max-width:100%;height:auto;display:block;margin:0 auto;"></span></section></section><p style="font-size:12px;color:#9CA3AF;text-align:center;margin:0 0 24px;"><span leaf="">— 点击 Send</span></p><section style="margin-bottom:22px;">
+<section style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+<span style="display:inline-block;background:#DC2626;color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;"><span leaf="">STEP 07</span></span>
+<span style="font-size:15px;font-weight:800;color:#1C1917;"><span leaf="">关闭安心体验</span></span>
+</section>
+<p style="font-size:15px;margin:0 0 16px;color:#374151;line-height:1.8;text-align:justify;padding:0 14px;"><span leaf="">这是火山引擎的安全提醒机制——说白了就是告知你：关掉后免费次数用完就开始收费了，选择关掉就行。</span></p>
+</section><section style="background:#FFF;border-radius:12px;padding:6px;border:1px solid #E5E7EB;box-shadow:0 4px 12px -2px rgba(0,0,0,0.08);margin:0 14px 8px;"><section style="margin:0;border-radius:8px;overflow:hidden;"><span leaf=""><img src="images/day11-screenshot-09.png" style="max-width:100%;height:auto;display:block;margin:0 auto;"></span></section></section><p style="font-size:12px;color:#9CA3AF;text-align:center;margin:0 0 24px;"><span leaf="">— 安心体验提示</span></p><section style="background:#FFF;border-radius:12px;padding:6px;border:1px solid #E5E7EB;box-shadow:0 4px 12px -2px rgba(0,0,0,0.08);margin:0 14px 8px;"><section style="margin:0;border-radius:8px;overflow:hidden;"><span leaf=""><img src="images/day11-screenshot-10.png" style="max-width:100%;height:auto;display:block;margin:0 auto;"></span></section></section><section style="background:#FFF;border-radius:12px;padding:6px;border:1px solid #E5E7EB;box-shadow:0 4px 12px -2px rgba(0,0,0,0.08);margin:0 14px 8px;"><section style="margin:0;border-radius:8px;overflow:hidden;"><span leaf=""><img src="images/day11-screenshot-11.png" style="max-width:100%;height:auto;display:block;margin:0 auto;"></span></section></section><section style="background:#FFF;border-radius:12px;padding:6px;border:1px solid #E5E7EB;box-shadow:0 4px 12px -2px rgba(0,0,0,0.08);margin:0 14px 8px;"><section style="margin:0;border-radius:8px;overflow:hidden;"><span leaf=""><img src="images/day11-screenshot-12.png" style="max-width:100%;height:auto;display:block;margin:0 auto;"></span></section></section><section style="margin-bottom:22px;">
+<section style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+<span style="display:inline-block;background:#DC2626;color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;"><span leaf="">STEP 08</span></span>
+<span style="font-size:15px;font-weight:800;color:#1C1917;"><span leaf="">查看结果</span></span>
+</section>
+<p style="font-size:15px;margin:0 0 16px;color:#374151;line-height:1.8;text-align:justify;padding:0 14px;"><span leaf="">返回中的这串 URL 就是图片地址，按住 CTRL 点击鼠标左键，自动下载图片。</span></p>
+</section><section style="background:#FFF;border-radius:12px;padding:6px;border:1px solid #E5E7EB;box-shadow:0 4px 12px -2px rgba(0,0,0,0.08);margin:0 14px 8px;"><section style="margin:0;border-radius:8px;overflow:hidden;"><span leaf=""><img src="images/day11-screenshot-13.png" style="max-width:100%;height:auto;display:block;margin:0 auto;"></span></section></section><p style="font-size:12px;color:#9CA3AF;text-align:center;margin:0 0 24px;"><span leaf="">— 返回图片 URL</span></p><section style="background:#FFF;border-radius:12px;padding:6px;border:1px solid #E5E7EB;box-shadow:0 4px 12px -2px rgba(0,0,0,0.08);margin:0 14px 8px;"><section style="margin:0;border-radius:8px;overflow:hidden;"><span leaf=""><img src="images/day11-screenshot-14.png" style="max-width:100%;height:auto;display:block;margin:0 auto;"></span></section></section><p style="font-size:12px;color:#9CA3AF;text-align:center;margin:0 0 24px;"><span leaf="">— 生成效果</span></p><p style="margin-bottom:20px;font-size:15px;line-height:1.8;text-align:justify;padding:0 14px;"><span leaf="">上面用的是官方示例提示词，下面用自己的提示词重新生成一张：</span></p><section style="background:#FFF;border-radius:12px;padding:6px;border:1px solid #E5E7EB;box-shadow:0 4px 12px -2px rgba(0,0,0,0.08);margin:0 14px 8px;"><section style="margin:0;border-radius:8px;overflow:hidden;"><span leaf=""><img src="images/day11-screenshot-15.png" style="max-width:100%;height:auto;display:block;margin:0 auto;"></span></section></section><p style="font-size:12px;color:#9CA3AF;text-align:center;margin:0 0 24px;"><span leaf="">— 自定义提示词</span></p><section style="margin-bottom:22px;">
+<section style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+<span style="display:inline-block;background:#DC2626;color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;"><span leaf="">STEP 09</span></span>
+<span style="font-size:15px;font-weight:800;color:#1C1917;"><span leaf="">结果出来，还是 CTRL+点击</span></span>
+</section>
+<p style="font-size:15px;margin:0 0 16px;color:#374151;line-height:1.8;text-align:justify;padding:0 14px;"><span leaf="">下载图片查看效果。</span></p>
+</section><section style="background:#FFF;border-radius:12px;padding:6px;border:1px solid #E5E7EB;box-shadow:0 4px 12px -2px rgba(0,0,0,0.08);margin:0 14px 8px;"><section style="margin:0;border-radius:8px;overflow:hidden;"><span leaf=""><img src="images/day11-screenshot-16.png" style="max-width:100%;height:auto;display:block;margin:0 auto;"></span></section></section><p style="font-size:12px;color:#9CA3AF;text-align:center;margin:0 0 24px;"><span leaf="">— 生成效果 2</span></p><section style="background:#FFF;border-radius:12px;padding:6px;border:1px solid #E5E7EB;box-shadow:0 4px 12px -2px rgba(0,0,0,0.08);margin:0 14px 8px;"><section style="margin:0;border-radius:8px;overflow:hidden;"><span leaf=""><img src="images/day11-screenshot-17.png" style="max-width:100%;height:auto;display:block;margin:0 auto;"></span></section></section><p style="font-size:12px;color:#9CA3AF;text-align:center;margin:0 0 24px;"><span leaf="">— 最终效果</span></p><section style="margin-top:48px;margin-bottom:28px;padding:0 14px;">
+<section style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;padding-bottom:14px;border-bottom:3px solid #DC2626;">
+<section style="display:flex;align-items:center;">
+<span style="display:inline-block;background:#DC2626;color:#FFFFFF;font-size:18px;font-weight:900;padding:4px 14px;border-radius:6px;margin-right:14px;line-height:1.3;"><span leaf="">∞</span></span>
+<section>
+<p style="font-size:10px;color:#DC2626;font-weight:700;letter-spacing:3px;margin:0 0 2px;text-transform:uppercase;"><span leaf="">THE END</span></p>
+<p style="font-size:18px;font-weight:800;color:#1C1917;margin:0;letter-spacing:0.5px;"><span leaf="">API 正常，可以接入软件了</span></p>
+</section>
+</section>
+</section>
+</section><section style="background:#FEF2F2;border-left:4px solid #DC2626;border-radius:0 8px 8px 0;padding:14px 20px;margin:0 14px 24px;"><p style="font-size:14px;font-weight:700;color:#991B1B;margin:0;line-height:1.8;"><span leaf="">💡 说明 API 正常，可以把 API 接到你的软件中了，以传统或 AI 的方式。</span></p></section><section style="background:#FEF2F2;border-radius:0 10px 10px 0;border-left:4px solid #DC2626;padding:18px 22px;margin:0 14px 24px;"><p style="font-size:16px;font-weight:800;color:#991B1B;margin:0;line-height:1.8;"><span leaf="">「人或 AI 在实际写代码前，就先把 API 调通，会给 AI 写代码增加很大的确定性，节省不必要的麻烦。」</span></p></section><p style="margin-bottom:20px;font-size:15px;line-height:1.8;text-align:justify;padding:0 14px;"><span leaf="">当然这个过程也完全可以让 AI 帮你去做测试，不需要 Postman。但如果你自己会用 Postman，</span><span style="border-bottom:2px solid #FECACA;font-weight:600;"><span leaf="">API 的验证会更灵活、也能节省一点点 token，排查问题时可能也会更高效</span></span><span leaf="">。</span></p><section style="padding:0 14px;">
+<section style="text-align:center;margin:0 0 32px;">
+<section style="display:flex;align-items:center;justify-content:center;">
+<span style="height:2px;width:60px;background:linear-gradient(to right,transparent,#DC2626);margin-right:12px;"><span leaf=""><br></span></span>
+<span style="font-size:11px;color:#DC2626;letter-spacing:3px;font-weight:700;"><span leaf="">END</span></span>
+<span style="height:2px;width:60px;background:linear-gradient(to left,transparent,#DC2626);margin-left:12px;"><span leaf=""><br></span></span>
+</section>
+</section>
+</section>
+
+<section style="padding:0 14px;">
+<p style="margin-bottom:20px;font-size:15px;line-height:1.8;text-align:justify;"><span leaf="">我是未迟，正在挑战 30 天自学 Web 出海。</span></p>
+<p style="margin-bottom:20px;font-size:15px;line-height:1.8;text-align:justify;"><span leaf="">如果你觉得今天这篇有收获，欢迎</span><strong style="color:#DC2626;"><span leaf="">点赞、在看、转发</span></strong><span leaf="">三连，我们下篇见。</span></p>
+</section>
+</section>
