@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day16：我给DeepSeek Harness做了个桌面版 - 未迟的30天自学Web出海</title>
+<style>body{margin:0;background:#f5f5f5;font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;} .wrap{max-width:720px;margin:0 auto;background:#fff;padding:24px 16px 48px;}</style></head>
+<body><div class="wrap">
+<h1 style="font-size:22px;margin:0 0 8px;">我给 DeepSeek Harness 做了个桌面版</h1>
+<p style="color:#999;font-size:13px;margin:0 0 24px;padding-bottom:16px;border-bottom:1px solid #eee;">Day16 · 2026-08-16 · 挑战30天自学Web出海</p>
+<section style="max-width:677px;margin:0 auto;background:#F5F1F0;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;color:#6B6B6B;line-height:1.8;letter-spacing:0.5px;overflow-x:hidden;">
+<p style="margin-bottom:20px;font-size:15px;line-height:1.8;text-align:justify;color:#6B6B6B;"><span leaf="">Deepseek Harness刚刚发布开发者预览版，有朋友想快速体验一下，但不会安装或者嫌命令行太麻烦，为了让没有技术背景或者怕麻烦的朋友们体验到dsh，我给大家准备了一个deepseek harness的桌面版——鲸彩世界，简称DSHD。下载后双击安装即可。</span></p>
+<p style="margin-bottom:8px;font-size:13px;color:#8BA3B0;font-weight:700;letter-spacing:2px;"><span leaf="">⬇ 下载地址</span></p>
+<p style="margin-bottom:20px;font-size:15px;line-height:1.8;text-align:justify;color:#6B6B6B;"><a href="https://weichi-ai.github.io/dshd/" style="color:#8BA3B0;text-decoration:underline;word-break:break-all;"><span leaf="">https://weichi-ai.github.io/dshd/</span></a></p>
+<section style="background:#FFFFFF;border-radius:12px;padding:6px;border:1px solid #E3DBD9;box-shadow:0 2px 12px -2px rgba(181,130,140,0.08);margin-bottom:10px;">
+  <section style="margin:0;border-radius:8px;overflow:hidden;">
+    <span leaf=""><img src="day16-illus-01.png" style="max-width:100%;"></span>
+  </section>
+</section>
+
+<p style="margin-bottom:20px;font-size:15px;line-height:1.8;text-align:justify;color:#6B6B6B;"><span leaf="">你或许用过 ChatGPT、DeepSeek、豆包——和它们聊天很爽，但它们有个共同点：</span><span style="border-bottom:2px solid #D4B5A0;font-weight:600;color:#4A4A4A;"><span leaf="">只动嘴，不动手</span></span><span leaf="">。问它"帮我整理这个文件夹"，它只能说"你打开文件夹，选中文件，右键……"——最后动手的还是你。</span></p>
+<p style="margin-bottom:20px;font-size:15px;line-height:1.8;text-align:justify;color:#6B6B6B;"><span style="border-bottom:2px solid #D4B5A0;font-weight:600;color:#4A4A4A;"><span leaf="">DeepSeek Harness（简称 dsh）不一样</span></span><span leaf="">：它不光会回答，还能真的在你的电脑上干活——读你的文件、改你的文件、帮你运行命令。</span></p>
+<section style="background:#FFFFFF;border-radius:12px;padding:10px;border:1px solid #E3DBD9;margin-bottom:24px;overflow-x:auto;"><table style="width:100%;border-collapse:collapse;"><thead><tr><th style="padding:10px 12px;background:#F2ECEC;color:#8A5A63;font-weight:700;border:1px solid #E3DBD9;text-align:left;font-size:14px;"></th><th style="padding:10px 12px;background:#F2ECEC;color:#8A5A63;font-weight:700;border:1px solid #E3DBD9;text-align:left;font-size:14px;">聊天软件（ChatGPT / DeepSeek / 豆包）</th><th style="padding:10px 12px;background:#F2ECEC;color:#8A5A63;font-weight:700;border:1px solid #E3DBD9;text-align:left;font-size:14px;">DeepSeek Harness</th></tr></thead><tbody><tr><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">能干什么</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">只回答你</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">读文件、改文件、运行命令、管理任务</td></tr><tr><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">工作地点</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">云端网页</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">你自己电脑上的文件夹</td></tr><tr><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">要不要你动手</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">要，它只给建议</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">不用，它自己动手</td></tr><tr><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">重要操作</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">—</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">要你点头同意（审批）</td></tr><tr><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">能加功能吗</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">不能</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">插件随便装</td></tr></tbody></table></section>
+<p style="margin-bottom:20px;font-size:15px;line-height:1.8;text-align:justify;color:#6B6B6B;"><span leaf="">用一句话记住：</span></p>
+<section style="margin:10px 10px 32px;background:#F2ECEC;border-radius:14px;box-shadow:0 2px 16px -4px rgba(181,130,140,0.12);padding:28px 24px 22px;overflow:hidden;border-left:4px solid #B5828C;">
+  <p style="font-size:38px;color:#B5828C;font-weight:900;margin:0;line-height:0.7;opacity:0.6;"><span leaf="">"</span></p>
+  <p style="font-size:16px;font-weight:700;color:#4A4A4A;margin:14px 0 10px;line-height:1.8;padding-left:2px;"><span style="background:#B5828C;color:#FFFFFF;padding:2px 8px;border-radius:4px;font-weight:700;"><span leaf="">ChatGPT 是"顾问"，Harness 是"员工"。顾问只会说，员工真的会干活。</span></span></p>
+  
+</section>
+<section style="background:#FFFFFF;border-radius:12px;padding:6px;border:1px solid #E3DBD9;box-shadow:0 2px 12px -2px rgba(181,130,140,0.08);margin-bottom:10px;">
+  <section style="margin:0;border-radius:8px;overflow:hidden;">
+    <span leaf=""><img src="day16-illus-02.png" style="max-width:100%;"></span>
+  </section>
+</section>
+
+<section style="margin-top:48px;margin-bottom:28px;padding:0 10px;">
+  <section style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;padding-bottom:14px;border-bottom:2px solid #E3DBD9;">
+    <section style="display:flex;align-items:center;">
+      <span style="display:inline-block;background:#9CAF9C;color:#FFFFFF;font-size:17px;font-weight:800;padding:5px 16px;border-radius:20px;margin-right:14px;line-height:1.3;"><span leaf="">03</span></span>
+      <section>
+        <p style="font-size:10px;color:#9CAF9C;font-weight:600;letter-spacing:3px;margin:0 0 2px;text-transform:uppercase;"><span leaf="">PART</span></p>
+        <h3 style="font-size:18px;font-weight:700;color:#4A4A4A;margin:0;letter-spacing:0.5px;"><span leaf="">它到底能帮你干什么？</span></h3>
+      </section>
+    </section>
+  </section>
+</section>
+<p style="margin-bottom:20px;font-size:15px;line-height:1.8;text-align:justify;color:#6B6B6B;"><span style="border-bottom:2px solid #D4B5A0;font-weight:600;color:#4A4A4A;"><span leaf="">场景一：整理文件夹。</span></span><span leaf=""> 你对它说"把这个文件夹里的图片按月份分好类"，它真的会建子文件夹、移动文件，干完告诉你结果。</span></p>
+<p style="margin-bottom:20px;font-size:15px;line-height:1.8;text-align:justify;color:#6B6B6B;"><span style="border-bottom:2px solid #D4B5A0;font-weight:600;color:#4A4A4A;"><span leaf="">场景二：改文档。</span></span><span leaf=""> 你说"把这份 Markdown 里所有标题改成三级"，它直接改好，你打开看就行。</span></p>
+<p style="margin-bottom:20px;font-size:15px;line-height:1.8;text-align:justify;color:#6B6B6B;"><span style="border-bottom:2px solid #D4B5A0;font-weight:600;color:#4A4A4A;"><span leaf="">场景三：跑任务。</span></span><span leaf=""> 你说"帮我看看这个项目用的什么技术栈"，它自己翻文件、自己总结，把结论端到你面前。</span></p>
+<section style="margin-top:48px;margin-bottom:28px;padding:0 10px;">
+  <section style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;padding-bottom:14px;border-bottom:2px solid #E3DBD9;">
+    <section style="display:flex;align-items:center;">
+      <span style="display:inline-block;background:#D4B5A0;color:#FFFFFF;font-size:17px;font-weight:800;padding:5px 16px;border-radius:20px;margin-right:14px;line-height:1.3;"><span leaf="">04</span></span>
+      <section>
+        <p style="font-size:10px;color:#D4B5A0;font-weight:600;letter-spacing:3px;margin:0 0 2px;text-transform:uppercase;"><span leaf="">PART</span></p>
+        <h3 style="font-size:18px;font-weight:700;color:#4A4A4A;margin:0;letter-spacing:0.5px;"><span leaf="">为什么叫 Harness？</span></h3>
+      </section>
+    </section>
+  </section>
+</section>
+<p style="margin-bottom:20px;font-size:15px;line-height:1.8;text-align:justify;color:#6B6B6B;"><span leaf="">英文里 harness 是"马具、缰绳"。给马套上缰绳，马才能按你的方向拉车。</span><span style="border-bottom:2px solid #D4B5A0;font-weight:600;color:#4A4A4A;"><span leaf="">给 AI 套上 harness，AI 才能按你的指令干活</span></span><span leaf="">——这就是这个名字的意思。</span></p>
+<section style="margin:10px 10px 32px;background:#F2ECEC;border-radius:14px;box-shadow:0 2px 16px -4px rgba(181,130,140,0.12);padding:28px 24px 22px;overflow:hidden;border-left:4px solid #B5828C;">
+  <p style="font-size:38px;color:#B5828C;font-weight:900;margin:0;line-height:0.7;opacity:0.6;"><span leaf="">"</span></p>
+  <p style="font-size:16px;font-weight:700;color:#4A4A4A;margin:14px 0 10px;line-height:1.8;padding-left:2px;"><span leaf="">💡 记住一个词就够：</span><span style="background:#B5828C;color:#FFFFFF;padding:2px 8px;border-radius:4px;font-weight:700;"><span leaf="">dsh = 能动手的 AI</span></span><span leaf="">。后面的章节全是教你怎么用它、怎么给它加本事。</span></p>
+  
+</section>
+<p style="margin-bottom:20px;font-size:15px;line-height:1.8;text-align:justify;color:#6B6B6B;"><span style="border-bottom:2px solid #D4B5A0;font-weight:600;color:#4A4A4A;"><span leaf="">说人话</span></span><span leaf="">：以前 AI 是只动嘴的顾问，现在它是能动手的员工——你要学的，就是怎么当这个"老板"。</span></p>
+<section style="padding:0 10px;">
+  <section style="height:1px;background:linear-gradient(to right,transparent,#D4B5A0,#B5828C,#D4B5A0,transparent);margin:0;"><span leaf=""><br></span></section>
+</section>
+<section style="margin-top:48px;margin-bottom:28px;padding:0 10px;">
+  <section style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;padding-bottom:14px;border-bottom:2px solid #E3DBD9;">
+    <section style="display:flex;align-items:center;">
+      <span style="display:inline-block;background:#B5828C;color:#FFFFFF;font-size:17px;font-weight:800;padding:5px 16px;border-radius:20px;margin-right:14px;line-height:1.3;"><span leaf="">01</span></span>
+      <section>
+        <p style="font-size:10px;color:#B5828C;font-weight:600;letter-spacing:3px;margin:0 0 2px;text-transform:uppercase;"><span leaf="">PART</span></p>
+        <h3 style="font-size:18px;font-weight:700;color:#4A4A4A;margin:0;letter-spacing:0.5px;"><span leaf="">DeepSeek Harness 适合谁用？</span></h3>
+      </section>
+    </section>
+  </section>
+</section>
+<p style="margin-bottom:20px;font-size:15px;line-height:1.8;text-align:justify;color:#6B6B6B;"><span style="border-bottom:2px solid #D4B5A0;font-weight:600;color:#4A4A4A;"><span leaf="">一句话：适合所有想让 AI 真给自己干活的人。</span></span><span leaf=""> 但具体分几类：</span></p>
+<section style="background:#FFFFFF;border-radius:12px;padding:10px;border:1px solid #E3DBD9;margin-bottom:24px;overflow-x:auto;"><table style="width:100%;border-collapse:collapse;"><thead><tr><th style="padding:10px 12px;background:#F2ECEC;color:#8A5A63;font-weight:700;border:1px solid #E3DBD9;text-align:left;font-size:14px;">人群</th><th style="padding:10px 12px;background:#F2ECEC;color:#8A5A63;font-weight:700;border:1px solid #E3DBD9;text-align:left;font-size:14px;">适合程度</th><th style="padding:10px 12px;background:#F2ECEC;color:#8A5A63;font-weight:700;border:1px solid #E3DBD9;text-align:left;font-size:14px;">怎么用</th></tr></thead><tbody><tr><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">完全没写过代码的小白</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">✅ 很适合</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">让 AI 整理文件夹、改文档、总结资料——本手册就是为你写的</td></tr><tr><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">会一点编程的开发者</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">✅ 非常合适</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">让 AI 写代码、跑测试、查 bug，你负责审</td></tr><tr><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">内容创作者 / 自媒体</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">✅ 适合</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">让 AI 批量处理素材、生成草稿、管理文件</td></tr><tr><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">想把 AI 变成产品的人</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">✅ 最合适</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">dsh 的插件机制 = 可以把你的流程做成工具分发（进阶）</td></tr><tr><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">只想聊天的用户</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">❌ 不适合</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">用 ChatGPT / DeepSeek 网页版就够了，不需要装这个</td></tr></tbody></table></section>
+<section style="margin:10px 10px 32px;background:#F2ECEC;border-radius:14px;box-shadow:0 2px 16px -4px rgba(181,130,140,0.12);padding:28px 24px 22px;overflow:hidden;border-left:4px solid #B5828C;">
+  <p style="font-size:38px;color:#B5828C;font-weight:900;margin:0;line-height:0.7;opacity:0.6;"><span leaf="">"</span></p>
+  <p style="font-size:16px;font-weight:700;color:#4A4A4A;margin:14px 0 10px;line-height:1.8;padding-left:2px;"><span leaf="">💡 判断标准就一条：</span><span style="background:#B5828C;color:#FFFFFF;padding:2px 8px;border-radius:4px;font-weight:700;"><span leaf="">你想不想让 AI 碰你电脑上的文件？</span></span><span leaf=""> 想 → 用它；不想 → 用聊天软件。</span></p>
+  
+</section>
+<section style="background:#FFFFFF;border-radius:12px;padding:6px;border:1px solid #E3DBD9;box-shadow:0 2px 12px -2px rgba(181,130,140,0.08);margin-bottom:10px;">
+  <section style="margin:0;border-radius:8px;overflow:hidden;">
+    <span leaf=""><img src="day16-illus-03.png" style="max-width:100%;"></span>
+  </section>
+</section>
+
+<section style="margin-top:48px;margin-bottom:28px;padding:0 10px;">
+  <section style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;padding-bottom:14px;border-bottom:2px solid #E3DBD9;">
+    <section style="display:flex;align-items:center;">
+      <span style="display:inline-block;background:#8BA3B0;color:#FFFFFF;font-size:17px;font-weight:800;padding:5px 16px;border-radius:20px;margin-right:14px;line-height:1.3;"><span leaf="">02</span></span>
+      <section>
+        <p style="font-size:10px;color:#8BA3B0;font-weight:600;letter-spacing:3px;margin:0 0 2px;text-transform:uppercase;"><span leaf="">PART</span></p>
+        <h3 style="font-size:18px;font-weight:700;color:#4A4A4A;margin:0;letter-spacing:0.5px;"><span leaf="">和 Codex、Claude Code、WorkBuddy 有什么区别？</span></h3>
+      </section>
+    </section>
+  </section>
+</section>
+<p style="margin-bottom:20px;font-size:15px;line-height:1.8;text-align:justify;color:#6B6B6B;"><span leaf="">市面上"能动手的 AI"还有几款，很多人会问它们和 dsh 有什么区别。一句话版：</span></p>
+<section style="margin:10px 10px 32px;background:#F2ECEC;border-radius:14px;box-shadow:0 2px 16px -4px rgba(181,130,140,0.12);padding:28px 24px 22px;overflow:hidden;border-left:4px solid #B5828C;">
+  <p style="font-size:38px;color:#B5828C;font-weight:900;margin:0;line-height:0.7;opacity:0.6;"><span leaf="">"</span></p>
+  <p style="font-size:16px;font-weight:700;color:#4A4A4A;margin:14px 0 10px;line-height:1.8;padding-left:2px;"><span style="background:#B5828C;color:#FFFFFF;padding:2px 8px;border-radius:4px;font-weight:700;"><span leaf="">Codex / Claude Code 是"AI 程序员"，dsh 是"AI 员工的办公室"——如果说前者只能让 AI 写代码，后者则能让 AI 干任何事，还能给它装各种技能。</span></span></p>
+  
+</section>
+<section style="background:#FFFFFF;border-radius:12px;padding:10px;border:1px solid #E3DBD9;margin-bottom:24px;overflow-x:auto;"><table style="width:100%;border-collapse:collapse;"><thead><tr><th style="padding:10px 12px;background:#F2ECEC;color:#8A5A63;font-weight:700;border:1px solid #E3DBD9;text-align:left;font-size:14px;">对比项</th><th style="padding:10px 12px;background:#F2ECEC;color:#8A5A63;font-weight:700;border:1px solid #E3DBD9;text-align:left;font-size:14px;">DeepSeek Harness</th><th style="padding:10px 12px;background:#F2ECEC;color:#8A5A63;font-weight:700;border:1px solid #E3DBD9;text-align:left;font-size:14px;">OpenAI Codex</th><th style="padding:10px 12px;background:#F2ECEC;color:#8A5A63;font-weight:700;border:1px solid #E3DBD9;text-align:left;font-size:14px;">Claude Code</th><th style="padding:10px 12px;background:#F2ECEC;color:#8A5A63;font-weight:700;border:1px solid #E3DBD9;text-align:left;font-size:14px;">WorkBuddy</th></tr></thead><tbody><tr><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">谁家的</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">DeepSeek（开源）</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">OpenAI</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">Anthropic</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">商业产品（你电脑上装的）</td></tr><tr><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">核心定位</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">通用 Agent 框架，"一切皆插件"</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">编码助手（写代码为主）</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">编码助手（终端里写代码）</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">桌面 AI 助手</td></tr><tr><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">能干嘛</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">读/改文件、跑命令、装插件扩展任意能力</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">写代码、改代码、跑测试</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">写代码、改代码、跑命令</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">桌面操作、任务辅助</td></tr><tr><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">插件生态</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">✅ 核心卖点，官方定位"Everything is a Plugin"</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">有 MCP 但以代码场景为主</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">有 MCP 但以代码场景为主</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">有限</td></tr><tr><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">适合谁</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">想做通用自动化的人（不限于代码）</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">主要写代码的开发者</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">主要写代码的开发者</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">办公人群</td></tr><tr><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">学习门槛</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">中低（要装 Node.js，但鲸彩世界帮你解决了，就像安装workbuddy一样）</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">低（登录即用）</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">中（终端操作）</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">低</td></tr><tr><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">开源</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">✅ 完全开源（GitHub）</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">❌</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">❌</td><td style="padding:9px 12px;border:1px solid #E3DBD9;color:#6B6B6B;font-size:13.5px;">❌</td></tr></tbody></table></section>
+<p style="margin-bottom:20px;font-size:15px;line-height:1.8;text-align:justify;color:#6B6B6B;"><span style="border-bottom:2px solid #D4B5A0;font-weight:600;color:#4A4A4A;"><span leaf="">怎么选（实用建议）</span></span><span leaf="">：</span></p>
+<section style="background:#F5F1F0;border-radius:12px;padding:20px;margin-bottom:24px;border:1px solid #E3DBD9;"><section style="display:flex;align-items:flex-start;margin-bottom:14px;">
+    <span style="display:inline-block;width:6px;height:6px;background:#B5828C;border-radius:50%;margin-right:14px;margin-top:9px;flex-shrink:0;"></span>
+    <p style="font-size:15px;color:#4A4A4A;margin:0;line-height:1.7;"><span leaf="">**你只想让 AI 帮忙写代码** → Codex 或 Claude Code 上手最快，不用折腾</span></p>
+  </section><section style="display:flex;align-items:flex-start;margin-bottom:14px;">
+    <span style="display:inline-block;width:6px;height:6px;background:#8BA3B0;border-radius:50%;margin-right:14px;margin-top:9px;flex-shrink:0;"></span>
+    <p style="font-size:15px;color:#4A4A4A;margin:0;line-height:1.7;"><span leaf="">**你想让 AI 干各种杂活（整理文件/改文档/批处理）+ 以后想加自定义技能** → dsh</span></p>
+  </section><section style="display:flex;align-items:flex-start;margin-bottom:14px;">
+    <span style="display:inline-block;width:6px;height:6px;background:#9CAF9C;border-radius:50%;margin-right:14px;margin-top:9px;flex-shrink:0;"></span>
+    <p style="font-size:15px;color:#4A4A4A;margin:0;line-height:1.7;"><span leaf="">**你已经装了 WorkBuddy 且够用** → 先用着，等需要"能装插件 + 开源可控"时再换 dsh</span></p>
+  </section><section style="display:flex;align-items:flex-start;margin-bottom:0;">
+    <span style="display:inline-block;width:6px;height:6px;background:#D4B5A0;border-radius:50%;margin-right:14px;margin-top:9px;flex-shrink:0;"></span>
+    <p style="font-size:15px;color:#4A4A4A;margin:0;line-height:1.7;"><span leaf="">**你好奇/想学习** → dsh 全开源，代码随便看，社区在 Discord</span></p>
+  </section></section>
+<section style="margin:10px 10px 32px;background:#F2ECEC;border-radius:14px;box-shadow:0 2px 16px -4px rgba(181,130,140,0.12);padding:28px 24px 22px;overflow:hidden;border-left:4px solid #B5828C;">
+  <p style="font-size:38px;color:#B5828C;font-weight:900;margin:0;line-height:0.7;opacity:0.6;"><span leaf="">"</span></p>
+  <p style="font-size:16px;font-weight:700;color:#4A4A4A;margin:14px 0 10px;line-height:1.8;padding-left:2px;"><span leaf="">⚠️ </span><span style="background:#B5828C;color:#FFFFFF;padding:2px 8px;border-radius:4px;font-weight:700;"><span leaf="">诚实提醒</span></span><span leaf="">：dsh 目前是 0.1.0-rc 版（开发者预览），迭代很快、可能有破坏性更新；Codex / Claude Code 更成熟稳定。</span><span style="background:#B5828C;color:#FFFFFF;padding:2px 8px;border-radius:4px;font-weight:700;"><span leaf="">小白建议</span></span><span leaf="">：想尝鲜用 dsh，想要稳定主力干活可以先从成熟工具开始。但 dsh 的"插件化 + 开源"方向，是它最大的长期优势。</span></p>
+  
+</section>
+<p style="font-size:17px;font-weight:700;color:#4A4A4A;margin:30px 0 14px;padding-left:10px;border-left:3px solid #B5828C;"><span leaf="">目前我浅浅使用deepseek harness的一些感受</span></p>
+<section style="background:#F5F1F0;border-radius:12px;padding:20px;margin-bottom:24px;border:1px solid #E3DBD9;"><section style="display:flex;align-items:flex-start;margin-bottom:14px;">
+    <span style="display:inline-block;background:#B5828C;color:#FFFFFF;font-size:12px;font-weight:700;min-width:24px;height:24px;line-height:24px;text-align:center;border-radius:12px;margin-right:12px;margin-top:3px;flex-shrink:0;"><span leaf="">1</span></span>
+    <p style="font-size:15px;color:#4A4A4A;margin:0;line-height:1.7;"><span leaf="">使用deepseek harness+deepseek flash/pro，整体还是很丝滑的，作为一个刚面世的开发预览版agent工具，在tool调用和任务的loop表现上可圈可点。</span></p>
+  </section><section style="display:flex;align-items:flex-start;margin-bottom:14px;">
+    <span style="display:inline-block;background:#8BA3B0;color:#FFFFFF;font-size:12px;font-weight:700;min-width:24px;height:24px;line-height:24px;text-align:center;border-radius:12px;margin-right:12px;margin-top:3px;flex-shrink:0;"><span leaf="">2</span></span>
+    <p style="font-size:15px;color:#4A4A4A;margin:0;line-height:1.7;"><span leaf="">灵活度高，deepseek的理念就是薄内核，厚插件，一切皆可插件，快速开发插件，管理插件。我就用纯deepseek全家桶体验了一把插件的快速开发，比如电商套图生成插件，github插件，dsh皮肤插件。</span></p>
+  </section><section style="display:flex;align-items:flex-start;margin-bottom:0;">
+    <span style="display:inline-block;background:#9CAF9C;color:#FFFFFF;font-size:12px;font-weight:700;min-width:24px;height:24px;line-height:24px;text-align:center;border-radius:12px;margin-right:12px;margin-top:3px;flex-shrink:0;"><span leaf="">3</span></span>
+    <p style="font-size:15px;color:#4A4A4A;margin:0;line-height:1.7;"><span leaf="">开源免费，不必为了某些agent，用尽一切魔法，还要承受额度不够用的焦虑。</span></p>
+  </section></section>
+<p style="margin-bottom:20px;font-size:15px;line-height:1.8;text-align:justify;color:#6B6B6B;"><span leaf="">当然，还是要正视与top agent差距，目前我使用的过程中发现两个主要问题</span></p>
+<section style="background:#F5F1F0;border-radius:12px;padding:20px;margin-bottom:24px;border:1px solid #E3DBD9;"><section style="display:flex;align-items:flex-start;margin-bottom:14px;">
+    <span style="display:inline-block;background:#B5828C;color:#FFFFFF;font-size:12px;font-weight:700;min-width:24px;height:24px;line-height:24px;text-align:center;border-radius:12px;margin-right:12px;margin-top:3px;flex-shrink:0;"><span leaf="">1</span></span>
+    <p style="font-size:15px;color:#4A4A4A;margin:0;line-height:1.7;"><span leaf="">给出的部分方案不够智能，比如我让他生成安装包，没有用NSIS，而是自己去构建代码实现，所以错误率会上升，效率较慢，执行任务时间很长，同时也会多花费token，在我的提醒下改用NSIS，很快就完成了打包任务。</span></p>
+  </section><section style="display:flex;align-items:flex-start;margin-bottom:0;">
+    <span style="display:inline-block;background:#8BA3B0;color:#FFFFFF;font-size:12px;font-weight:700;min-width:24px;height:24px;line-height:24px;text-align:center;border-radius:12px;margin-right:12px;margin-top:3px;flex-shrink:0;"><span leaf="">2</span></span>
+    <p style="font-size:15px;color:#4A4A4A;margin:0;line-height:1.7;"><span leaf="">deepseek的模型是单模态的，不支持图像识别与画面理解，可能在很多场景就会吃亏一点，靠盲猜，或者要你告诉它这个画面大概是什么内容，这样的话，在图像应用场景例如computer use的体验就会大幅下降，需要换成其他模型处理。我注意到目前dsh还没有computer use插件，可能也是这个原因，需要借助其他模型来做，computer use通过vibe coding的模式估计也比较难实现，我还没尝试，改天可以试下。</span></p>
+  </section></section>
+<section style="background:#FFFFFF;border-radius:12px;padding:6px;border:1px solid #E3DBD9;box-shadow:0 2px 12px -2px rgba(181,130,140,0.08);margin-bottom:10px;">
+  <section style="margin:0;border-radius:8px;overflow:hidden;">
+    <span leaf=""><img src="day16-illus-04.png" style="max-width:100%;"></span>
+  </section>
+</section>
+
+<p style="margin-bottom:20px;font-size:15px;line-height:1.8;text-align:justify;color:#6B6B6B;"><span leaf="">如果你也对Agent感兴趣，欢迎使用deepseek harness（鲸彩世界），让它成为你工作、学习、生活的小帮手，也欢迎你加入鲸彩世界项目的开发维护和升级。</span></p>
+<section style="padding:0 10px;">
+  <section style="height:1px;background:linear-gradient(to right,transparent,#D4B5A0,#B5828C,#D4B5A0,transparent);margin:0;"><span leaf=""><br></span></section>
+</section>
+<section style="padding:0 10px;">
+  <section style="text-align:center;margin:0 0 32px;">
+    <section style="display:flex;align-items:center;justify-content:center;">
+      <span style="height:1px;width:60px;background:linear-gradient(to right,transparent,#B5828C);margin-right:14px;"></span>
+      <span style="font-size:11px;color:#B5828C;letter-spacing:4px;font-weight:600;"><span leaf="">END</span></span>
+      <span style="height:1px;width:60px;background:linear-gradient(to left,transparent,#B5828C);margin-left:14px;"></span>
+    </section>
+  </section>
+</section>
+<section style="padding:0 10px;">
+  <p style="margin-bottom:16px;font-size:15px;line-height:1.8;text-align:justify;color:#6B6B6B;"><span leaf="">我是未迟，正在挑战 30 天自学 Web 出海。</span></p>
+  <p style="margin-bottom:20px;font-size:15px;line-height:1.8;text-align:justify;color:#6B6B6B;"><span leaf="">如果你觉得今天这篇有收获，欢迎</span><strong style="color:#B5828C;"><span leaf="">点赞、在看、转发</span></strong><span leaf="">三连，我们下篇见</span></p>
+</section>
+</section>
+</div></body></html>
